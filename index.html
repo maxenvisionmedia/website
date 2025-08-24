@@ -39,7 +39,8 @@
     .nav{padding:12px 0}
     .logo-img{height:56px}
     .brand{font-size:18px;font-weight:500}
-    .nav-links{display:none !important}
+    .nav-links{display:flex;gap:12px}
+    .nav-links a:not(.primary){display:none}
   }
 
   /* ===== Hero with background video ===== */
@@ -55,6 +56,7 @@
   .kicker{color:var(--brand);font-weight:700;letter-spacing:.12em;font-size:12px}
   .headline{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:10px 0 14px}
   .lead{color:var(--muted);font-size:clamp(16px,2.2vw,19px);max-width:60ch;margin-bottom:26px}
+  .u-gold{ text-decoration: underline; text-decoration-color: var(--brand); text-decoration-thickness: .14em; text-underline-offset: .18em; }
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
   @media (max-width:680px){
     .hero{min-height:100svh;padding:80px 0 48px}
@@ -172,8 +174,8 @@
     <div class="wrap hero-grid">
       <div>
         <div class="kicker">Los Angeles • Real Estate Photography &amp; Videography</div>
-        <h1 class="headline">your trusted real estate media partner</h1>
-        <p class="lead">Service-first and reliable. We deliver high-quality photos, cinematic video, social reels, and immersive 3D—on time, with clear communication and modern standards.</p>
+        <h1 class="headline">Your <span class="u-gold">trusted<\/span> real estate media partner<\/h1>
+        <p class="lead">Your listings deserve exceptional media, and you deserve a team that truly cares. From stunning photos to stop-scrolling social media reels to cinematic videos, we handle the media so you can stay focused on what you do best — serving your clients and growing your business.<\/p>
         <div class="hero-cta">
           <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
           <a class="btn" href="#work">see work</a>
@@ -187,7 +189,6 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Our Services</h2>
-        <p class="muted">Photos • Social Media Reels • Cinematic Videos • Floor Plans &amp; 3D</p>
       </div>
 
       <div class="tabs">
@@ -212,8 +213,8 @@
                 <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/fa1a76ee-6c2d-4ec9-9840-886aa3c55ddc/5928-chariton_009.jpg?content-type=image%2Fjpeg" alt="MLS-style Interior and Exterior Photography in Los Angeles" />
                 <div class="card-body">
                   <span class="tag">Photos</span>
-                  <h3>MLS-Style Photography</h3>
-                  <p>Consistent, MLS-ready coverage with true color, straight verticals, and clear room flow.</p>
+                  <h3>Listing Photography<\/h3>
+                  <p>High-quality, professional interior and exterior photos carefully edited and ready for MLS, social media, and all your marketing needs</p>
                 </div>
               </article>
               <article class="card">
@@ -221,7 +222,7 @@
                 <div class="card-body">
                   <span class="tag">Twilight</span>
                   <h3>Twilight Photography</h3>
-                  <p>Prime blue-hour compositions with natural ambience and glow.</p>
+                  <p>Show your property in its best light with stunning sunset photos that create a luxurious, high-end feel buyers can’t ignore</p>
                 </div>
               </article>
               <article class="card">
@@ -229,7 +230,7 @@
                 <div class="card-body">
                   <span class="tag">Drone</span>
                   <h3>Drone Photography</h3>
-                  <p>Aerial context that anchors the listing in its neighborhood.</p>
+                  <p>Show your property from a bird’s-eye view and highlight the neighborhood, lot, and surroundings with stunning aerial photos</p>
                 </div>
               </article>
             </div>
@@ -244,8 +245,8 @@
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
-                  <h3>Creative Reel</h3>
-                  <p>Hook-driven, on-brand storytelling built for vertical.</p>
+                  <h3>Creative Reels<\/h3>
+                  <p>Eye-catching, trending reels built for social media to showcase your listing, build your brand and help you stand out</p>
                 </div>
               </article>
               <article class="card">
@@ -254,8 +255,8 @@
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
-                  <h3>Teaser Reel</h3>
-                  <p>15–20s teasers perfect for open house promos and ads.</p>
+                  <h3>Teaser Reel Add-On<\/h3>
+                  <p>Get even more out of your listing media with a 15-second teaser reel. Perfect for coming soon posts, promoting open houses, and running ads to get your listing in front of more buyers</p>
                 </div>
               </article>
               <article class="card">
@@ -265,7 +266,7 @@
                 <div class="card-body">
                   <span class="tag">Reels</span>
                   <h3>iPhone Reel</h3>
-                  <p>Lightweight capture with fast turnaround and strong hooks.</p>
+                  <p>A simple, one-take style reel with a fast turnaround — perfect for quickly showcasing your listing on social media</p>
                 </div>
               </article>
             </div>
@@ -280,8 +281,8 @@
                 </div>
                 <div class="card-body">
                   <span class="tag">Cinematic</span>
-                  <h3>Premium Listing Video w/ Agent</h3>
-                  <p>Confident on-camera coaching, story-first pacing, and refined movement.</p>
+                  <h3>Premium Listing Video<\/h3>
+                  <p>A premium cinematic property tour designed to tell the story of the home and create an emotional connection with buyers.</p>
                 </div>
               </article>
               <article class="card">
@@ -290,8 +291,8 @@
                 </div>
                 <div class="card-body">
                   <span class="tag">Cinematic</span>
-                  <h3>Day-To-Night Premium</h3>
-                  <p>Daylight energy into blue-hour drama with seamless transitions.</p>
+                  <h3>Day-To-Night Add-On<\/h3>
+                  <p>Add twilight and night footage to your premium listing video for a cinematic, dramatic touch that makes your listing unforgettable</p>
                 </div>
               </article>
               <article class="card">
@@ -300,8 +301,8 @@
                 </div>
                 <div class="card-body">
                   <span class="tag">Cinematic</span>
-                  <h3>Standard MLS Listing Video</h3>
-                  <p>Clean coverage that meets MLS needs with elegant motion.</p>
+                  <h3>Standard Listing Video<\/h3>
+                  <p>A 60-second video tour that showcases your property and gives buyers a clear feel for the space - perfect for MLS!</p>
                 </div>
               </article>
             </div>
@@ -317,7 +318,7 @@
                 <div class="card-body">
                   <span class="tag">3D Tour</span>
                   <h3>Matterport 3D Tour</h3>
-                  <p>Immersive walkthrough—buyers explore at their own pace.</p>
+                  <p>A high-end 3D virtual tour that lets buyers walk through the home from anywhere. The interactive dollhouse view delivers a premium experience and a true feel for the property.</p>
                 </div>
               </article>
 
@@ -328,7 +329,7 @@
                 <div class="card-body">
                   <span class="tag">Zillow 3D</span>
                   <h3>Zillow 3D Home Tour</h3>
-                  <p>Interactive, Zillow-hosted tour embedded in-page.</p>
+                  <p>An interactive tour built for Zillow that boosts your listing’s visibility, increases engagement, and helps buyers explore the home online.</p>
                 </div>
               </article>
 
