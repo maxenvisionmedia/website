@@ -12,11 +12,7 @@
 <meta property="og:locale" content="en_US" />
 
 <style>
-  :root{
-    --bg:#1a1a1a; --card:#232323; --text:#fff; --muted:#cfcfcf; --brand:#dca738;
-    --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --shadow-sm:0 6px 18px rgba(0,0,0,.28);
-    --maxw:1200px;
-  }
+  :root{ --bg:#1a1a1a; --card:#232323; --text:#fff; --muted:#cfcfcf; --brand:#dca738; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --shadow-sm:0 6px 18px rgba(0,0,0,.28); --maxw:1200px; }
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
   a{color:inherit;text-decoration:none}
@@ -36,16 +32,14 @@
   .btn.primary{background:linear-gradient(135deg,var(--brand),#f4d07a);color:#1a1a1a;border:0;box-shadow:0 16px 36px rgba(220,167,56,.40)}
   .btn.primary:hover{transform:translateY(-1px);box-shadow:0 20px 44px rgba(220,167,56,.48)}
 
-  /* Mobile menu (CSS-only) */
+  /* Mobile menu (hidden per request) */
   .menu-toggle{display:none}
-  .menu-trigger{display:none}
+  .menu-trigger{display:none !important}
   @media (max-width: 900px){
-    .nav{padding:14px 0}
+    .nav{padding:12px 0}
     .logo-img{height:56px}
     .brand{font-size:18px;font-weight:500}
-    .menu-trigger{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-weight:600;text-transform:lowercase}
-    .nav-links{position:absolute;right:20px;top:72px;display:none;flex-direction:column;gap:10px;background:rgba(26,26,26,.98);padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:12px}
-    .menu-toggle:checked + label + nav.nav-links{display:flex}
+    .nav-links{display:none !important}
   }
 
   /* ===== Hero with background video ===== */
@@ -54,9 +48,9 @@
     radial-gradient(1200px 600px at 10% -10%,rgba(0,0,0,.55),transparent),
     linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.6));z-index:1}
   .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-  .hero-bg iframe{position:absolute;top:50%;left:50%;
-    transform:translate(-50%,-50%) scale(1.25);
-    width:177.78vh;height:100vh;pointer-events:none;border-radius:0}
+  .hero-bg iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.25);width:177.78vh;height:100vh;pointer-events:none;border-radius:0}
+  .hero-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.6);transition:opacity .35s ease}
+  .hero-fallback.hide{opacity:0;visibility:hidden}
   .hero-grid{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:24px;min-height:inherit}
   .kicker{color:var(--brand);font-weight:700;letter-spacing:.12em;font-size:12px}
   .headline{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:10px 0 14px}
@@ -77,13 +71,16 @@
   .tab-controls{display:flex;flex-wrap:wrap;gap:10px}
   .tab-controls label{cursor:pointer;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--muted);transition:all .2s}
   .tab-controls label:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
+  /* stack tab pills on mobile */
+  @media (max-width:680px){
+    .tab-controls{flex-direction:column}
+    .tab-controls label{width:100%;text-align:left}
+  }
   input[type="radio"]{display:none}
   #tab-photos:checked ~ .tab-controls label[for="tab-photos"],
   #tab-reels:checked  ~ .tab-controls label[for="tab-reels"],
   #tab-cine:checked   ~ .tab-controls label[for="tab-cine"],
-  #tab-3d:checked     ~ .tab-controls label[for="tab-3d"]{
-    background:var(--brand);color:#1a1a1a;border-color:#f0c767;box-shadow:0 10px 26px rgba(220,167,56,.35)
-  }
+  #tab-3d:checked     ~ .tab-controls label[for="tab-3d"]{background:var(--brand);color:#1a1a1a;border-color:#f0c767;box-shadow:0 10px 26px rgba(220,167,56,.35)}
 
   .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
   .card{grid-column:span 4;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;transition:transform .18s,box-shadow .2s,border-color .2s}
@@ -92,6 +89,8 @@
   .tag{display:inline-flex;gap:8px;font-size:12px;letter-spacing:.08em;color:var(--brand)}
   .card h3{margin:8px 0 2px;font-size:18px}
   .card p{margin:4px 0 0;color:var(--muted);font-size:14px}
+  @media (max-width:1024px){.card{grid-column:span 6}}
+  @media (max-width:680px){.card{grid-column:span 12}}
 
   .set.tour .card{grid-column:span 6}
   .set.tour .card-floorplan{grid-column:span 6}
@@ -109,6 +108,8 @@
   .reviews{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
   .review{grid-column:span 4;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-sm)}
   .stars{letter-spacing:2px;color:var(--brand)}
+  @media (max-width:1024px){.review{grid-column:span 6}}
+  @media (max-width:680px){.review{grid-column:span 12}}
 
   /* CTA */
   .cta{text-align:center;padding:60px 20px;background:linear-gradient(135deg,rgba(220,167,56,.16),rgba(255,255,255,.06));border:1px solid rgba(220,167,56,.25);border-radius:var(--radius);box-shadow:0 16px 40px rgba(220,167,56,.16)}
@@ -148,11 +149,11 @@
         <span class="brand">envision media</span>
       </div>
 
-      <!-- Mobile menu toggle -->
+      <!-- Mobile menu toggle (hidden) -->
       <input id="menu" class="menu-toggle" type="checkbox" aria-label="Toggle menu" />
       <label class="menu-trigger" for="menu">menu</label>
 
-      <!-- Desktop & mobile links -->
+      <!-- Desktop links -->
       <nav class="nav-links" role="navigation" aria-label="primary">
         <a class="btn" href="#work" aria-label="View Services">services</a>
         <a class="btn" href="#reviews" aria-label="Read Reviews">reviews</a>
@@ -164,8 +165,8 @@
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="hero">
     <div class="hero-bg" aria-hidden="true">
-      <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&dnt=1"
-              allow="autoplay; fullscreen; picture-in-picture" title="background video"></iframe>
+      <img class="hero-fallback" src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/fa1a76ee-6c2d-4ec9-9840-886aa3c55ddc/5928-chariton_009.jpg?content-type=image%2Fjpeg" alt="listing backdrop" />
+      <iframe id="bgvid" src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" title="background video"></iframe>
     </div>
 
     <div class="wrap hero-grid">
@@ -359,11 +360,12 @@
     <div class="wrap"><h2>Our Clients</h2></div>
     <div class="logo-marquee" aria-label="Brokerage logos">
       <div class="logo-rail">
-        <!-- Use your uploaded PNGs inside /logos -->
+        <!-- Your uploaded PNGs inside /logos -->
         <img src="logos/compass.png" alt="Compass" />
         <img src="logos/the-agency.png" alt="The Agency" />
         <img src="logos/real-broker.png" alt="Real Brokerage" />
         <img src="logos/exp-realty.png" alt="eXp Realty" />
+        <img src="logos/kw.png" alt="Keller Williams" />
       </div>
     </div>
   </section>
@@ -433,7 +435,7 @@
     // Duplicate logo rail for seamless loop
     (function(){
       const rail = document.querySelector('.logo-rail');
-      if(rail) rail.innerHTML += rail.innerHTML;
+      if(rail) rail.innerHTML += rail.innerHTML; // duplicate once
     })();
 
     // Animated counters when stats enter viewport
@@ -442,11 +444,9 @@
       if(!nums.length) return;
       const fmt = new Intl.NumberFormat('en', {notation: 'standard'});
       const compact = new Intl.NumberFormat('en', {notation: 'compact'});
-
       const start = el => {
         const target = +el.dataset.target || 0;
-        const duration = 1400; // ms
-        const t0 = performance.now();
+        const duration = 1400; const t0 = performance.now();
         const suffix = el.dataset.suffix || '';
         const useCompact = el.dataset.format === 'compact';
         const step = now => {
@@ -457,13 +457,9 @@
         };
         requestAnimationFrame(step);
       };
-
       const io = new IntersectionObserver(entries=>{
         entries.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.querySelectorAll('.num').forEach(start);
-            io.unobserve(e.target);
-          }
+          if(e.isIntersecting){ e.target.querySelectorAll('.num').forEach(start); io.unobserve(e.target); }
         });
       }, {threshold: 0.25});
       const stats = document.querySelector('.stats .wrap');
@@ -475,7 +471,7 @@
       const header = document.querySelector('.site-header');
       if(!header) return;
       const startA = 0.78; // at top
-      const endA = 0.12;   // scrolled (very transparent)
+      const endA = 0.10;   // scrolled (very transparent)
       const maxY = 400;    // px
       const onScroll = () => {
         const y = Math.min(maxY, window.scrollY);
@@ -485,6 +481,14 @@
       };
       window.addEventListener('scroll', onScroll, {passive:true});
       onScroll();
+    })();
+
+    // Hide fallback when Vimeo is ready (prevents black flash on mobile)
+    (function(){
+      const iframe = document.getElementById('bgvid');
+      const fallback = document.querySelector('.hero-fallback');
+      if(!iframe || !fallback) return;
+      iframe.addEventListener('load', ()=> { fallback.classList.add('hide'); }, {once:true});
     })();
   </script>
 </body>
