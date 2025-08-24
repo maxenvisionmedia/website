@@ -426,3 +426,55 @@
   </footer>
 </body>
 </html>
+
+<style>
+  /* --- DESKTOP NAV: show inline links, hide mobile menu, taller bar, bigger logo --- */
+  @media (min-width: 861px){
+    .site-header .nav{ padding:30px 0 !important; }
+    .logo-img{ height:72px !important; }
+    #menu-toggle, label.hamburger{ display:none !important; }
+    .nav-links{ 
+      display:flex !important; 
+      position:static !important; 
+      background:transparent !important; 
+      padding:0 !important;
+      gap:18px !important;
+    }
+  }
+
+  /* --- MOBILE NAV: show the “menu” pill only under 860px --- */
+  @media (max-width: 860px){
+    label.hamburger{ display:inline-flex !important; }
+  }
+
+  /* --- BUTTONS: make “book now” look like a real pill again --- */
+  .nav-links .btn.primary,
+  .hero .btn.primary{
+    background: linear-gradient(135deg, #dca738, #f4d07a) !important;
+    color:#1a1a1a !important;
+    border:0 !important;
+    box-shadow: 0 16px 36px rgba(220,167,56,.40) !important;
+    border-radius: 999px !important;
+    padding: 12px 20px !important;
+    font-weight: 700 !important;
+  }
+  .nav-links .btn.primary:hover,
+  .hero .btn.primary:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 20px 44px rgba(220,167,56,.48) !important;
+  }
+
+  /* --- HERO VIDEO: punch in slightly so no thin black bars --- */
+  .hero{ min-height:85vh !important; }
+  @media (max-width:680px){ .hero{ min-height:100svh !important; } }
+  .hero-bg iframe{
+    transform: translate(-50%, -50%) scale(1.30) !important;
+    width: 177.78vh !important; height: 100vh !important;
+    width: 177.78svh !important; height: 100svh !important;
+    border:0 !important; pointer-events:none !important;
+  }
+
+  /* --- FLOOR PLAN TILE: keep same width as others on desktop --- */
+  .set.tour .card-floorplan{ grid-column: span 6 !important; }
+</style>
+
