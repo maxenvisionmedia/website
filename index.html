@@ -45,7 +45,7 @@
     .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(140%) blur(8px); background: rgba(26,26,26,.7); border-bottom: 1px solid rgba(220,167,56,.18); }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
     .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
-    .logo-img { height: 28px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35)); }
+    .logo-img { height: 40px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35)); }
     .brand { text-transform: lowercase; }
     .nav-links { display: flex; gap: 18px; align-items: center; }
 
@@ -96,6 +96,10 @@
     .card h3 { margin: 8px 0 2px; font-size: 18px; text-transform: none; }
     .card p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
 
+    /* aspect helpers for embeds */
+    .ratio-16x9 { position: relative; padding-top: 56.25%; border-radius: calc(var(--radius) - 4px); overflow: hidden; }
+    .ratio-9x16 { position: relative; padding-top: 150%; border-radius: calc(var(--radius) - 4px); overflow: hidden; }
+
     /* show/hide per tab */
     .set { display: none; }
     #tab-photos:checked ~ .sets .set.photos,
@@ -125,6 +129,11 @@
     @media (max-width: 680px) {
       .card, .review { grid-column: span 12; }
       .hero { padding-top: 96px; }
+      .hero-bg iframe { width: 177.78vw; height: 56.25vw; }
+      .logo-img { height: 32px; }
+      .ratio-9x16 { padding-top: 170%; }
+    }
+      .hero { padding-top: 96px; }
     }
   </style>
 </head>
@@ -147,12 +156,7 @@
   <!-- hero with background video -->
   <section class="hero" aria-label="hero">
     <div class="hero-bg" aria-hidden="true">
-      <!-- Vimeo background embed (recommended): swap the id if you prefer a different clip -->
-      <iframe src="https://player.vimeo.com/video/1112603102?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" title="background video"></iframe>
-      <!-- Optional alternative (commented): host an MP4 and use the HTML5 video for maximum control -->
-      <!--
-      <video autoplay muted playsinline loop poster="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"><source src="/path-to-your-video.mp4" type="video/mp4" /></video>
-      -->
+      <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" title="Background Video" style="position:absolute; inset:0; width:100%; height:100%; border:0;"></iframe>
     </div>
     <div class="wrap hero-grid">
       <div>
@@ -164,19 +168,14 @@
           <a href="#work" class="btn">see work</a>
         </div>
       </div>
-      <div class="hero-media" aria-hidden="true">
-        <div class="hero-media-inner">
-          <iframe src="https://www.youtube.com/embed/QvqKTXvTRsc?rel=0&modestbranding=1&playsinline=1" title="Premium Listing Video with Agent" style="position:relative; width:100%; aspect-ratio:16/9;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
       </div>
-    </div>
   </section>
 
   <!-- portfolio / work (tabs) -->
   <section id="work">
     <div class="wrap">
       <div class="section-head">
-        <h2>Selected Work</h2>
+        <h2>Our Services</h2>
         <p class="muted">Photos • Cinematic Videos • Social Media Reels • Floor Plans & 3D</p>
       </div>
 
@@ -230,8 +229,7 @@
           <div class="set cine">
             <div class="grid">
               <article class="card" style="overflow:hidden;">
-                <div style="position:relative; padding-top:56.25%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://www.youtube.com/embed/QvqKTXvTRsc?rel=0&modestbranding=1&playsinline=1" title="Premium Listing Video with Agent" style="position:absolute; inset:0; width:100%; height:100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="ratio-16x9"><iframe src="https://www.youtube.com/embed/QvqKTXvTRsc?rel=0&modestbranding=1&playsinline=1" title="Premium Listing Video with Agent" style="position:absolute; inset:0; width:100%; height:100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Cinematic</span>
@@ -266,8 +264,7 @@
           <div class="set reels">
             <div class="grid">
               <article class="card" style="overflow:hidden;">
-                <div style="position:relative; padding-top:177%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://player.vimeo.com/video/1112602152?h=6cf229f8e3&title=0&byline=0&portrait=0&dnt=1" title="Creative Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <div class="ratio-9x16"><iframe src="https://player.vimeo.com/video/1112602152?h=6cf229f8e3&title=0&byline=0&portrait=0&dnt=1" title="Creative Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
@@ -276,8 +273,7 @@
                 </div>
               </article>
               <article class="card" style="overflow:hidden;">
-                <div style="position:relative; padding-top:177%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://player.vimeo.com/video/1112601675?h=f62484f5d8&title=0&byline=0&portrait=0&dnt=1" title="Teaser Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <div class="ratio-9x16"><iframe src="https://player.vimeo.com/video/1112601675?h=f62484f5d8&title=0&byline=0&portrait=0&dnt=1" title="Teaser Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
@@ -286,8 +282,7 @@
                 </div>
               </article>
               <article class="card" style="overflow:hidden;">
-                <div style="position:relative; padding-top:177%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://player.vimeo.com/video/969982087?h=07dd99972f&title=0&byline=0&portrait=0&dnt=1" title="iPhone Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <div class="ratio-9x16"><iframe src="https://player.vimeo.com/video/969982087?h=07dd99972f&title=0&byline=0&portrait=0&dnt=1" title="iPhone Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
@@ -376,7 +371,7 @@
   <footer>
     <div class="wrap">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
-        <p>© <span id="y">2025</span> envision media la • los angeles, ca</p>
+        <p>© <span id="y">2025</span> ENVISION MEDIA LA LLC • los angeles, ca</p>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn" href="#work">back to work</a>
           <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
