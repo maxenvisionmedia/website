@@ -25,10 +25,10 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
   /* ===== Header / Nav ===== */
-  .site-header{position:sticky;top:0;z-index:20;background:rgba(26,26,26,.78);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(220,167,56,.18)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
+  .site-header{position:sticky;top:0;z-index:20;background:rgba(26,26,26,.78);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(220,167,56,.18);transition:background .25s ease}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
   .logo{display:flex;align-items:center;gap:14px}
-  .logo-img{height:84px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+  .logo-img{height:72px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
   .brand{font-weight:500;letter-spacing:.2px;text-transform:lowercase;font-size:clamp(18px,1.8vw,22px);opacity:.95}
   .nav-links{display:flex;align-items:center;gap:18px}
   .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font-weight:700;text-transform:lowercase;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .2s,border-color .2s}
@@ -40,7 +40,7 @@
   .menu-toggle{display:none}
   .menu-trigger{display:none}
   @media (max-width: 900px){
-    .nav{padding:20px 0}
+    .nav{padding:14px 0}
     .logo-img{height:56px}
     .brand{font-size:18px;font-weight:500}
     .menu-trigger{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-weight:600;text-transform:lowercase}
@@ -154,7 +154,7 @@
 
       <!-- Desktop & mobile links -->
       <nav class="nav-links" role="navigation" aria-label="primary">
-        <a class="btn" href="#work" aria-label="View Work">work</a>
+        <a class="btn" href="#work" aria-label="View Services">services</a>
         <a class="btn" href="#reviews" aria-label="Read Reviews">reviews</a>
         <a class="btn primary" href="https://order.envisionmediala.com/" aria-label="Book Now">book now</a>
       </nav>
@@ -359,14 +359,11 @@
     <div class="wrap"><h2>Our Clients</h2></div>
     <div class="logo-marquee" aria-label="Brokerage logos">
       <div class="logo-rail">
-        <!-- One sequence; JS duplicates it for seamless loop -->
-        <img src="logos/compass.svg" alt="Compass" />
-        <img src="logos/exp-realty.svg" alt="eXp Realty" />
-        <img src="logos/real-broker.svg" alt="Real Brokerage" />
-        <img src="logos/douglas-elliman.svg" alt="Douglas Elliman" />
-        <img src="logos/rodeo-realty.svg" alt="Rodeo Realty" />
-        <img src="logos/berkshire-hathaway-hs.svg" alt="Berkshire Hathaway HomeServices" />
-        <img src="logos/village-properties.svg" alt="Village Properties" />
+        <!-- Use your uploaded PNGs inside /logos -->
+        <img src="logos/compass.png" alt="Compass" />
+        <img src="logos/the-agency.png" alt="The Agency" />
+        <img src="logos/real-broker.png" alt="Real Brokerage" />
+        <img src="logos/exp-realty.png" alt="eXp Realty" />
       </div>
     </div>
   </section>
@@ -380,7 +377,7 @@
       </div>
       <div class="stat">
         <div class="num" data-target="150" data-suffix="+">0</div>
-        <div class="label">clients</div>
+        <div class="label">trusted clients</div>
       </div>
       <div class="stat">
         <div class="num" data-target="500" data-suffix="+">0</div>
@@ -433,11 +430,10 @@
 
   <!-- Minimal JS (inline) -->
   <script>
-    // Duplicate logo rail for seamless loop if needed
+    // Duplicate logo rail for seamless loop
     (function(){
       const rail = document.querySelector('.logo-rail');
-      if(!rail) return;
-      rail.innerHTML += rail.innerHTML; // duplicate once
+      if(rail) rail.innerHTML += rail.innerHTML;
     })();
 
     // Animated counters when stats enter viewport
@@ -453,7 +449,6 @@
         const t0 = performance.now();
         const suffix = el.dataset.suffix || '';
         const useCompact = el.dataset.format === 'compact';
-
         const step = now => {
           const p = Math.min(1, (now - t0)/duration);
           const val = Math.floor(target * (p*p*(3-2*p))); // ease
@@ -473,6 +468,23 @@
       }, {threshold: 0.25});
       const stats = document.querySelector('.stats .wrap');
       if(stats) io.observe(stats);
+    })();
+
+    // Make navbar more transparent as you scroll (keeps same at top)
+    (function(){
+      const header = document.querySelector('.site-header');
+      if(!header) return;
+      const startA = 0.78; // at top
+      const endA = 0.12;   // scrolled (very transparent)
+      const maxY = 400;    // px
+      const onScroll = () => {
+        const y = Math.min(maxY, window.scrollY);
+        const t = y / maxY;
+        const a = (startA + (endA - startA) * t).toFixed(3);
+        header.style.background = `rgba(26,26,26,${a})`;
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
     })();
   </script>
 </body>
