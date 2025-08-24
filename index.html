@@ -3,14 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>envision media – Real Estate Media in Los Angeles</title>
-<meta name="description" content="Real estate photography, cinematic listing videos, social media reels, Matterport 3D tours, and floor plans in Los Angeles. Fast scheduling, consistent quality, and a trusted media partner for agents." />
-<meta property="og:title" content="envision media – Real Estate Media in Los Angeles" />
-<meta property="og:description" content="Photography, cinematic videos, reels, 3D tours, and floor plans. Your trusted real estate media partner in LA." />
+<title>envision media – Los Angeles Real Estate Photography & Videography</title>
+<meta name="description" content="Service-first, reliable real estate media in Los Angeles: high-quality photos, cinematic video, social reels, Matterport 3D, and floor plans—delivered on time with modern standards." />
+<meta property="og:title" content="envision media – Los Angeles Real Estate Photography & Videography" />
+<meta property="og:description" content="High-quality photos, cinematic video, reels, 3D tours, and floor plans. Service-first and reliably on time." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/dc6f0da1-4437-4257-9759-984be88375ba/envisionmedialogo-transparent.png?content-type=image%2Fpng" />
 <meta property="og:locale" content="en_US" />
-
 <style>
   :root{
     --bg:#1a1a1a; --card:#232323; --text:#fff; --muted:#cfcfcf; --brand:#dca738;
@@ -20,19 +19,19 @@
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
   a{color:inherit;text-decoration:none}
-  img,iframe,video{display:block;width:100%;height:auto;border:0;border-radius:calc(var(--radius) - 4px)}
+  img,iframe{display:block;width:100%;height:auto;border:0;border-radius:calc(var(--radius) - 4px)}
   h1,h2,h3{margin:0 0 .4em}
+
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
   /* ===== Header / Nav ===== */
   .site-header{position:sticky;top:0;z-index:20;background:rgba(26,26,26,.78);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(220,167,56,.18)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
-  .logo{display:flex;align-items:center;gap:12px}
-  .logo-img{height:64px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
-  .brand{text-transform:lowercase;font-weight:700;letter-spacing:.2px}
-
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
+  .logo{display:flex;align-items:center;gap:14px}
+  .logo-img{height:72px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+  .brand{font-weight:800;letter-spacing:.2px;text-transform:lowercase;font-size:clamp(20px,2.4vw,30px)}
   .nav-links{display:flex;align-items:center;gap:18px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font-weight:700;text-transform:lowercase;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:var(--shadow-sm);transition:transform .15s ease,box-shadow .2s ease,border-color .2s ease}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font-weight:700;text-transform:lowercase;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .2s,border-color .2s}
   .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.25);box-shadow:0 8px 22px rgba(0,0,0,.35)}
   .btn.primary{background:linear-gradient(135deg,var(--brand),#f4d07a);color:#1a1a1a;border:0;box-shadow:0 16px 36px rgba(220,167,56,.40)}
   .btn.primary:hover{transform:translateY(-1px);box-shadow:0 20px 44px rgba(220,167,56,.48)}
@@ -41,8 +40,9 @@
   .menu-toggle{display:none}
   .menu-trigger{display:none}
   @media (max-width: 900px){
-    .nav{padding:18px 0}
-    .logo-img{height:44px}
+    .nav{padding:20px 0}
+    .logo-img{height:48px}
+    .brand{font-size:22px}
     .menu-trigger{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-weight:600;text-transform:lowercase}
     .nav-links{position:absolute;right:20px;top:72px;display:none;flex-direction:column;gap:10px;background:rgba(26,26,26,.98);padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:12px}
     .menu-toggle:checked + label + nav.nav-links{display:flex}
@@ -55,12 +55,11 @@
     linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.6));z-index:1}
   .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
   .hero-bg iframe{position:absolute;top:50%;left:50%;
-    transform:translate(-50%,-50%) scale(1.25); /* punch in to kill black bars */
-    width:177.78vh;height:100vh; /* 16:9 cover baseline */
-    pointer-events:none;border-radius:0}
+    transform:translate(-50%,-50%) scale(1.25); /* punch in to remove thin bars */
+    width:177.78vh;height:100vh;pointer-events:none;border-radius:0}
   .hero-grid{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:24px;min-height:inherit}
   .kicker{color:var(--brand);font-weight:700;letter-spacing:.12em;font-size:12px}
-  .headline{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:10px 0 14px;text-transform:none}
+  .headline{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:10px 0 14px}
   .lead{color:var(--muted);font-size:clamp(16px,2.2vw,19px);max-width:60ch;margin-bottom:26px}
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
   @media (max-width:680px){
@@ -94,15 +93,12 @@
   .card h3{margin:8px 0 2px;font-size:18px}
   .card p{margin:4px 0 0;color:var(--muted);font-size:14px}
 
-  /* 3D tab: two-up first row, floor plan half-width on its own next row */
   .set.tour .card{grid-column:span 6}
   .set.tour .card-floorplan{grid-column:span 6}
 
-  /* Aspect helpers for embeds */
   .ratio-16x9{position:relative;padding-top:56.25%;border-radius:calc(var(--radius) - 4px);overflow:hidden}
   .ratio-9x16{position:relative;padding-top:150%;border-radius:calc(var(--radius) - 4px);overflow:hidden}
 
-  /* Show per tab */
   .set{display:none}
   #tab-photos:checked ~ .sets .photos,
   #tab-reels:checked  ~ .sets .reels,
@@ -118,6 +114,21 @@
   .cta{text-align:center;padding:60px 20px;background:linear-gradient(135deg,rgba(220,167,56,.16),rgba(255,255,255,.06));border:1px solid rgba(220,167,56,.25);border-radius:var(--radius);box-shadow:0 16px 40px rgba(220,167,56,.16)}
   .cta h3{margin:0 0 10px;font-size:clamp(22px,3.2vw,30px)}
 
+  /* Clients marquee */
+  .clients{padding:64px 0}
+  .clients h2{font-size:clamp(22px,3.2vw,32px);text-align:center;margin-bottom:24px;letter-spacing:.08em}
+  .logo-marquee{overflow:hidden;position:relative}
+  .logo-marquee::before,.logo-marquee::after{
+    content:"";position:absolute;top:0;bottom:0;width:100px;pointer-events:none;z-index:2}
+  .logo-marquee::before{left:0;background:linear-gradient(to right,var(--bg),rgba(26,26,26,0))}
+  .logo-marquee::after{right:0;background:linear-gradient(to left,var(--bg),rgba(26,26,26,0))}
+  .logo-rail{display:flex;gap:56px;align-items:center;min-height:72px;animation:marquee 38s linear infinite}
+  .logo-rail:hover{animation-play-state:paused}
+  .logo-item{opacity:.92;filter:drop-shadow(0 1px 6px rgba(0,0,0,.35));white-space:nowrap;font-weight:800;font-size:28px;letter-spacing:.02em}
+  .logo-item.thin{font-weight:500;letter-spacing:.1em;font-size:26px}
+  .logo-item.smallcaps{font-variant:small-caps;letter-spacing:.12em}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
   /* Responsive cards */
   @media (max-width:1024px){
     .card{grid-column:span 6}
@@ -127,9 +138,11 @@
     .card,.review{grid-column:span 12}
     .ratio-9x16{padding-top:170%}
   }
+
+  /* Footer */
+  footer{padding:40px 0 60px;color:var(--muted);font-size:14px}
 </style>
 </head>
-
 <body>
   <!-- ===== Header ===== -->
   <header class="site-header" role="banner">
@@ -155,16 +168,15 @@
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="hero">
     <div class="hero-bg" aria-hidden="true">
-      <!-- Vimeo background embed -->
       <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&dnt=1"
               allow="autoplay; fullscreen; picture-in-picture" title="background video"></iframe>
     </div>
 
     <div class="wrap hero-grid">
       <div>
-        <div class="kicker">Los Angeles • Real Estate Media</div>
+        <div class="kicker">Los Angeles • Real Estate Photography &amp; Videography</div>
         <h1 class="headline">your trusted real estate media partner</h1>
-        <p class="lead">Photography, drone, cinematic videos, social reels, and immersive 3D—delivered with obsessive quality and on-time reliability. Built for LA agents who want trust, polish, and results.</p>
+        <p class="lead">Service-first and reliable. We deliver high-quality photos, cinematic video, social reels, and immersive 3D—on time, with clear communication and modern standards.</p>
         <div class="hero-cta">
           <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
           <a class="btn" href="#work">see work</a>
@@ -178,7 +190,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Our Services</h2>
-        <p class="muted">Photos • Social Media Reels • Cinematic Videos • Floor Plans & 3D</p>
+        <p class="muted">Photos • Social Media Reels • Cinematic Videos • Floor Plans &amp; 3D</p>
       </div>
 
       <div class="tabs">
@@ -192,7 +204,7 @@
           <label for="tab-photos">Photos</label>
           <label for="tab-reels">Social Media Reels</label>
           <label for="tab-cine">Cinematic Videos</label>
-          <label for="tab-3d">Floor Plans & 3D Tours</label>
+          <label for="tab-3d">Floor Plans &amp; 3D Tours</label>
         </div>
 
         <div class="sets">
@@ -341,6 +353,33 @@
         <h3>Ready To Elevate Your Next Listing?</h3>
         <p class="muted" style="margin:6px 0 16px;">Fast scheduling, consistent quality, and a team you can trust.</p>
         <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Clients (Marquee) ===== -->
+  <section class="clients" id="clients">
+    <div class="wrap">
+      <h2>Our Clients</h2>
+    </div>
+    <div class="logo-marquee">
+      <div class="logo-rail" aria-label="Brokerage logos">
+        <!-- Repeat the list twice in one rail for a seamless loop -->
+        <span class="logo-item">compass</span>
+        <span class="logo-item">exp realty</span>
+        <span class="logo-item thin">douglas elliman</span>
+        <span class="logo-item">rodeo realty</span>
+        <span class="logo-item">real</span>
+        <span class="logo-item smallcaps">berkshire hathaway homeservices</span>
+        <span class="logo-item thin">village properties</span>
+
+        <span class="logo-item">compass</span>
+        <span class="logo-item">exp realty</span>
+        <span class="logo-item thin">douglas elliman</span>
+        <span class="logo-item">rodeo realty</span>
+        <span class="logo-item">real</span>
+        <span class="logo-item smallcaps">berkshire hathaway homeservices</span>
+        <span class="logo-item thin">village properties</span>
       </div>
     </div>
   </section>
