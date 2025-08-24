@@ -1,231 +1,191 @@
-<!--
-  envision media – one‑page landing (html + css only)
-  paste into a squarespace html block. no external js required.
-  highlights:
-  - css‑only tabs (Photos • Cinematic Videos • Social Media Reels • Floor Plans & 3D)
-  - autoplay looping background video (vimeo background embed) behind hero
-  - brand set to lowercase for “envision media”, buttons lowercase, most other headings/title‑case
-  - seo: meta description, og tags, semantic headings/alt text
-  - booking cta points to https://order.envisionmediala.com/
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>envision media – Real Estate Media in Los Angeles</title>
-  <meta name="description" content="Real estate photography, cinematic listing videos, social media reels, Matterport 3D tours, and floor plans in Los Angeles. Fast scheduling, consistent quality, and a trusted media partner for agents." />
-  <meta property="og:title" content="envision media – Real Estate Media in Los Angeles" />
-  <meta property="og:description" content="Photography, cinematic videos, reels, 3D tours, and floor plans. Your trusted real estate media partner in LA." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/dc6f0da1-4437-4257-9759-984be88375ba/envisionmedialogo-transparent.png?content-type=image%2Fpng" />
-  <meta property="og:locale" content="en_US" />
-  <style>
-    :root {
-      --bg: #1a1a1a;         /* brand dark */
-      --card: #232323;       /* surfaces */
-      --muted: #cfcfcf;      /* secondary text */
-      --text: #ffffff;       /* primary text */
-      --brand: #dca738;      /* gold */
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --shadow-sm: 0 6px 18px rgba(0,0,0,.28);
-      --maxw: 1200px;
-    }
-    * { box-sizing: border-box; }
-    html, body { background: var(--bg); color: var(--text); margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji"; line-height: 1.5; }
-    a { color: inherit; text-decoration: none; }
-    img, video, iframe { display: block; width: 100%; height: auto; border: 0; border-radius: calc(var(--radius) - 4px); }
-    h1, h2, h3 { margin: 0 0 .4em; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>envision media – Real Estate Media in Los Angeles</title>
+<meta name="description" content="Real estate photography, cinematic listing videos, social media reels, Matterport 3D tours, and floor plans in Los Angeles. Fast scheduling, consistent quality, and a trusted media partner for agents." />
+<meta property="og:title" content="envision media – Real Estate Media in Los Angeles" />
+<meta property="og:description" content="Photography, cinematic videos, reels, 3D tours, and floor plans. Your trusted real estate media partner in LA." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/dc6f0da1-4437-4257-9759-984be88375ba/envisionmedialogo-transparent.png?content-type=image%2Fpng" />
+<meta property="og:locale" content="en_US" />
 
-    /* layout */
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+<style>
+  :root{
+    --bg:#1a1a1a; --card:#232323; --text:#fff; --muted:#cfcfcf; --brand:#dca738;
+    --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --shadow-sm:0 6px 18px rgba(0,0,0,.28);
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+  a{color:inherit;text-decoration:none}
+  img,iframe,video{display:block;width:100%;height:auto;border:0;border-radius:calc(var(--radius) - 4px)}
+  h1,h2,h3{margin:0 0 .4em}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
-    /* header */
-    .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(140%) blur(8px); background: rgba(26,26,26,.7); border-bottom: 1px solid rgba(220,167,56,.18); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
-    .logo-img { height: 52px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35)); }
-    .brand { text-transform: lowercase; }
-    .nav-links { display: flex !important; gap: 18px; align-items: center; position: static; background: transparent; padding: 0; }
-    .nav { position: relative; }
-    .menu-toggle { display: none; }
-    .hamburger { display: none; cursor: pointer; height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); align-items: center; justify-content: center; background: rgba(255,255,255,.04); font-weight: 600; text-transform: lowercase; letter-spacing: .2px; }
-    .hamburger span { display: block; height: 2px; background: #ffffff; border-radius: 2px; width: 22px; }
-    .hamburger span:nth-child(2) { width: 16px; }
-    .hamburger span + span { margin-top: 5px; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #ffffff; border-radius: 2px; }
-    .hamburger span + span { margin-top: 5px; }
-    .hamburger span { display: block; width: 18px; height: 2px; background: #ffffff; border-radius: 2px; }
-    @media (max-width: 860px) {
-      .hamburger { display: inline-flex; }
-      .nav-links { position: absolute; right: 0; top: 76px; background: rgba(26,26,26,.96); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px; display: none; flex-direction: column; gap: 8px; min-width: 220px; }
-      .menu-toggle:checked ~ .nav-links { display: flex !important; }
-    }
-      .nav-links { position: absolute; right: 0; top: 60px; background: rgba(26,26,26,.96); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px; display: none; flex-direction: column; gap: 8px; min-width: 220px; }
-      .menu-toggle:checked ~ .nav-links { display: flex; }
-    }
-      .nav-links { position: absolute; right: 0; top: 60px; background: rgba(26,26,26,.96); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px; display: none; flex-direction: column; gap: 8px; min-width: 200px; }
-      .menu-toggle:checked ~ .nav-links { display: flex; }
-    }
-      .nav-links { position: absolute; right: 0; top: 60px; background: rgba(26,26,26,.96); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px; display: none; flex-direction: column; gap: 8px; min-width: 200px; }
-      .menu-toggle:checked ~ .nav-links { display: flex; }
-    }
+  /* ===== Header / Nav ===== */
+  .site-header{position:sticky;top:0;z-index:20;background:rgba(26,26,26,.78);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(220,167,56,.18)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-img{height:64px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+  .brand{text-transform:lowercase;font-weight:700;letter-spacing:.2px}
 
-    /* buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 18px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); box-shadow: 0 6px 18px rgba(0,0,0,.28); transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease; text-transform: lowercase; }
-    .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.25); box-shadow: 0 8px 22px rgba(0,0,0,.35); }
-    .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(220,167,56,.45); }
-    .btn.primary { background: linear-gradient(135deg, var(--brand), #f2d27a); color: #1a1a1a; border-color: rgba(220,167,56,.55); box-shadow: 0 14px 34px rgba(220,167,56,.35); }
-    .btn.primary:hover { background: linear-gradient(135deg, #c9962e, var(--brand)); border-color: #e4b552; box-shadow: 0 18px 40px rgba(220,167,56,.45); }
+  .nav-links{display:flex;align-items:center;gap:18px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font-weight:700;text-transform:lowercase;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:var(--shadow-sm);transition:transform .15s ease,box-shadow .2s ease,border-color .2s ease}
+  .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.25);box-shadow:0 8px 22px rgba(0,0,0,.35)}
+  .btn.primary{background:linear-gradient(135deg,var(--brand),#f4d07a);color:#1a1a1a;border:0;box-shadow:0 16px 36px rgba(220,167,56,.40)}
+  .btn.primary:hover{transform:translateY(-1px);box-shadow:0 20px 44px rgba(220,167,56,.48)}
 
-    /* hero with background video */
-    .hero { position: relative; padding: 96px 0 64px; overflow: hidden; isolation: isolate; min-height: 80vh; min-height: 80svh; }
-    .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1200px 600px at 10% -10%, rgba(0,0,0,.55), transparent), linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.6)); z-index: 1; }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-    .hero-bg iframe { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.1); width: 177.78vh !important; height: 100vh !important; width: 177.78svh !important; height: 100svh !important; pointer-events: none; border: 0; border-radius: 0; }
-    .hero-grid { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: 24px; min-height: inherit; }
-    .kicker { color: var(--brand); font-weight: 700; letter-spacing: .12em; font-size: 12px; text-transform: none; }
-    .headline { font-size: clamp(32px, 5vw, 56px); line-height: 1.05; margin: 10px 0 14px; text-transform: none; }
-    .lead { color: var(--muted); font-size: clamp(16px, 2.2vw, 19px); margin-bottom: 26px; max-width: 60ch; }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-media { position: relative; border-radius: var(--radius); padding: 10px; background: linear-gradient(135deg, rgba(220,167,56,.18), rgba(255,255,255,.08)); box-shadow: var(--shadow); }
+  /* Mobile menu (CSS-only) */
+  .menu-toggle{display:none}
+  .menu-trigger{display:none}
+  @media (max-width: 900px){
+    .nav{padding:18px 0}
+    .logo-img{height:44px}
+    .menu-trigger{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-weight:600;text-transform:lowercase}
+    .nav-links{position:absolute;right:20px;top:72px;display:none;flex-direction:column;gap:10px;background:rgba(26,26,26,.98);padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:12px}
+    .menu-toggle:checked + label + nav.nav-links{display:flex}
+  }
 
-    /* section */
-    section { padding: 72px 0; border-top: 1px solid rgba(255,255,255,.08); }
-    .section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 28px; gap: 20px; }
-    .section-head h2 { margin: 0; font-size: clamp(24px, 3.6vw, 36px); text-transform: none; }
-    .muted { color: var(--muted); }
+  /* ===== Hero with background video ===== */
+  .hero{position:relative;isolation:isolate;min-height:88vh;min-height:88svh;padding:96px 0 64px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(1200px 600px at 10% -10%,rgba(0,0,0,.55),transparent),
+    linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.6));z-index:1}
+  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .hero-bg iframe{position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%) scale(1.25); /* punch in to kill black bars */
+    width:177.78vh;height:100vh; /* 16:9 cover baseline */
+    pointer-events:none;border-radius:0}
+  .hero-grid{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:24px;min-height:inherit}
+  .kicker{color:var(--brand);font-weight:700;letter-spacing:.12em;font-size:12px}
+  .headline{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:10px 0 14px;text-transform:none}
+  .lead{color:var(--muted);font-size:clamp(16px,2.2vw,19px);max-width:60ch;margin-bottom:26px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  @media (max-width:680px){
+    .hero{min-height:100svh;padding:80px 0 48px}
+    .hero-bg iframe{transform:translate(-50%,-50%) scale(1.32);width:177.78svh;height:100svh}
+  }
 
-    /* tabs (css-only) */
-    .tabs { display: grid; gap: 16px; }
-    .tab-controls { display: flex; flex-wrap: wrap; gap: 10px; }
-    .tab-controls label { cursor: pointer; padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); color: var(--muted); transition: all .2s ease; text-transform: none; }
-    .tab-controls label:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
-    input[type="radio"] { display: none; }
-    /* active pill */
-    #tab-photos:checked ~ .tab-controls label[for="tab-photos"],
-    #tab-cine:checked   ~ .tab-controls label[for="tab-cine"],
-    #tab-reels:checked  ~ .tab-controls label[for="tab-reels"],
-    #tab-3d:checked     ~ .tab-controls label[for="tab-3d"] {
-      background: var(--brand); color: #1a1a1a; border-color: #f0c767; box-shadow: 0 10px 26px rgba(220,167,56,.35);
-    }
+  /* ===== Sections / Tabs ===== */
+  section{padding:72px 0;border-top:1px solid rgba(255,255,255,.08)}
+  .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px;gap:20px}
+  .section-head h2{font-size:clamp(24px,3.6vw,36px)}
+  .muted{color:var(--muted)}
 
-    .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
-    .card { grid-column: span 4; background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); overflow: hidden; transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease; }
-    .card:hover { transform: translateY(-2px); border-color: rgba(220,167,56,.45); box-shadow: 0 16px 40px rgba(220,167,56,.18); }
-    .card-body { padding: 14px 14px 16px; }
-    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .08em; text-transform: none; color: var(--brand); }
-    .card h3 { margin: 8px 0 2px; font-size: 18px; text-transform: none; }
-    .card p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+  .tabs{display:grid;gap:16px}
+  .tab-controls{display:flex;flex-wrap:wrap;gap:10px}
+  .tab-controls label{cursor:pointer;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--muted);transition:all .2s}
+  .tab-controls label:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
+  input[type="radio"]{display:none}
+  #tab-photos:checked ~ .tab-controls label[for="tab-photos"],
+  #tab-reels:checked  ~ .tab-controls label[for="tab-reels"],
+  #tab-cine:checked   ~ .tab-controls label[for="tab-cine"],
+  #tab-3d:checked     ~ .tab-controls label[for="tab-3d"]{
+    background:var(--brand);color:#1a1a1a;border-color:#f0c767;box-shadow:0 10px 26px rgba(220,167,56,.35)
+  }
 
-    /* larger cards for 3d/floor plans */
-    .set.tour .card { grid-column: span 6; }
-    .set.tour .card-floorplan { grid-column: span 6; }
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+  .card{grid-column:span 4;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;transition:transform .18s,box-shadow .2s,border-color .2s}
+  .card:hover{transform:translateY(-2px);border-color:rgba(220,167,56,.45);box-shadow:0 16px 40px rgba(220,167,56,.18)}
+  .card-body{padding:14px 14px 16px}
+  .tag{display:inline-flex;gap:8px;font-size:12px;letter-spacing:.08em;color:var(--brand)}
+  .card h3{margin:8px 0 2px;font-size:18px}
+  .card p{margin:4px 0 0;color:var(--muted);font-size:14px}
 
-    /* aspect helpers for embeds */
-    .ratio-16x9 { position: relative; padding-top: 56.25%; border-radius: calc(var(--radius) - 4px); overflow: hidden; }
-    .ratio-9x16 { position: relative; padding-top: 150%; border-radius: calc(var(--radius) - 4px); overflow: hidden; }
+  /* 3D tab: two-up first row, floor plan half-width on its own next row */
+  .set.tour .card{grid-column:span 6}
+  .set.tour .card-floorplan{grid-column:span 6}
 
-    /* show/hide per tab */
-    .set { display: none; }
-    #tab-photos:checked ~ .sets .set.photos,
-    #tab-cine:checked   ~ .sets .set.cine,
-    #tab-reels:checked  ~ .sets .set.reels,
-    #tab-3d:checked     ~ .sets .set.tour { display: block; }
+  /* Aspect helpers for embeds */
+  .ratio-16x9{position:relative;padding-top:56.25%;border-radius:calc(var(--radius) - 4px);overflow:hidden}
+  .ratio-9x16{position:relative;padding-top:150%;border-radius:calc(var(--radius) - 4px);overflow:hidden}
 
-    /* reviews */
-    .reviews { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
-    .review { grid-column: span 4; background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-sm); }
-    .stars { letter-spacing: 2px; color: var(--brand); }
+  /* Show per tab */
+  .set{display:none}
+  #tab-photos:checked ~ .sets .photos,
+  #tab-reels:checked  ~ .sets .reels,
+  #tab-cine:checked   ~ .sets .cine,
+  #tab-3d:checked     ~ .sets .tour{display:block}
 
-    /* cta band */
-    .cta { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, rgba(220,167,56,.16), rgba(255,255,255,.06)); border: 1px solid rgba(220,167,56,.25); border-radius: var(--radius); box-shadow: 0 16px 40px rgba(220,167,56,.16); }
-    .cta h3 { margin: 0 0 10px; font-size: clamp(22px, 3.2vw, 30px); text-transform: none; }
+  /* Reviews */
+  .reviews{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+  .review{grid-column:span 4;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-sm)}
+  .stars{letter-spacing:2px;color:var(--brand)}
 
-    /* footer */
-    footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; }
+  /* CTA */
+  .cta{text-align:center;padding:60px 20px;background:linear-gradient(135deg,rgba(220,167,56,.16),rgba(255,255,255,.06));border:1px solid rgba(220,167,56,.25);border-radius:var(--radius);box-shadow:0 16px 40px rgba(220,167,56,.16)}
+  .cta h3{margin:0 0 10px;font-size:clamp(22px,3.2vw,30px)}
 
-    /* responsive */
-    @media (max-width: 1024px) {
-      .card { grid-column: span 6; }
-      .review { grid-column: span 6; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-bg iframe { width: 177.78vw; height: 56.25vw; }
-    }
-    @media (max-width: 680px) {
-      .card, .review { grid-column: span 12; }
-      .hero { padding: 72px 0 48px; min-height: 100svh; }
-      .hero-bg iframe { transform: translate(-50%, -50%) scale(1.16); width: 177.78svh !important; height: 100svh !important; }
-      .logo-img { height: 40px; }
-      .ratio-9x16 { padding-top: 170%; }
-    }
-      .logo-img { height: 32px; }
-      .ratio-9x16 { padding-top: 170%; }
-    }
-      .hero { padding-top: 80px; min-height: 85vh; min-height: 85svh; }
-      .hero-bg iframe { width: 177.78vh !important; height: 100vh !important; width: 177.78svh !important; height: 100svh !important; }
-      .logo-img { height: 32px; }
-      .ratio-9x16 { padding-top: 170%; }
-    }
-      .hero { padding-top: 96px; }
-      .hero-bg iframe { width: 177.78vw; height: 56.25vw; }
-      .logo-img { height: 32px; }
-      .ratio-9x16 { padding-top: 170%; }
-    }
-      .hero { padding-top: 96px; }
-    }
-  </style>
+  /* Responsive cards */
+  @media (max-width:1024px){
+    .card{grid-column:span 6}
+    .review{grid-column:span 6}
+  }
+  @media (max-width:680px){
+    .card,.review{grid-column:span 12}
+    .ratio-9x16{padding-top:170%}
+  }
+</style>
 </head>
+
 <body>
-  <!-- header -->
+  <!-- ===== Header ===== -->
   <header class="site-header" role="banner">
     <div class="wrap nav">
       <div class="logo">
         <img class="logo-img" src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/dc6f0da1-4437-4257-9759-984be88375ba/envisionmedialogo-transparent.png?content-type=image%2Fpng" alt="envision media logo" />
         <span class="brand">envision media</span>
       </div>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle menu" />
-      <label for="menu-toggle" class="hamburger" aria-label="Open menu">menu</label>
+
+      <!-- Mobile menu toggle -->
+      <input id="menu" class="menu-toggle" type="checkbox" aria-label="Toggle menu" />
+      <label class="menu-trigger" for="menu">menu</label>
+
+      <!-- Desktop & mobile links -->
       <nav class="nav-links" role="navigation" aria-label="primary">
-        <a href="#work" class="btn" aria-label="View Work">work</a>
-        <a href="#reviews" class="btn" aria-label="Read Reviews">reviews</a>
-        <a href="https://order.envisionmediala.com/" class="btn primary" aria-label="Book Now">book now</a>
+        <a class="btn" href="#work" aria-label="View Work">work</a>
+        <a class="btn" href="#reviews" aria-label="Read Reviews">reviews</a>
+        <a class="btn primary" href="https://order.envisionmediala.com/" aria-label="Book Now">book now</a>
       </nav>
     </div>
   </header>
 
-  <!-- hero with background video -->
+  <!-- ===== Hero ===== -->
   <section class="hero" aria-label="hero">
     <div class="hero-bg" aria-hidden="true">
-      <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" title="Background Video"></iframe>
+      <!-- Vimeo background embed -->
+      <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&dnt=1"
+              allow="autoplay; fullscreen; picture-in-picture" title="background video"></iframe>
     </div>
+
     <div class="wrap hero-grid">
       <div>
         <div class="kicker">Los Angeles • Real Estate Media</div>
         <h1 class="headline">your trusted real estate media partner</h1>
-        <p class="lead">Photography, drone, cinematic videos, social reels, and immersive 3D—delivered with obsessive quality and on‑time reliability. Built for LA agents who want trust, polish, and results.</p>
+        <p class="lead">Photography, drone, cinematic videos, social reels, and immersive 3D—delivered with obsessive quality and on-time reliability. Built for LA agents who want trust, polish, and results.</p>
         <div class="hero-cta">
-          <a href="https://order.envisionmediala.com/" class="btn primary">book now</a>
-          <a href="#work" class="btn">see work</a>
+          <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
+          <a class="btn" href="#work">see work</a>
         </div>
       </div>
-      </div>
+    </div>
   </section>
 
-  <!-- portfolio / work (tabs) -->
+  <!-- ===== Services (Tabbed) ===== -->
   <section id="work">
     <div class="wrap">
       <div class="section-head">
         <h2>Our Services</h2>
-        <p class="muted">Photos • Cinematic Videos • Social Media Reels • Floor Plans & 3D</p>
+        <p class="muted">Photos • Social Media Reels • Cinematic Videos • Floor Plans & 3D</p>
       </div>
 
       <div class="tabs">
         <!-- controls -->
         <input type="radio" name="tabs" id="tab-photos" checked />
-        <input type="radio" name="tabs" id="tab-cine" />
         <input type="radio" name="tabs" id="tab-reels" />
+        <input type="radio" name="tabs" id="tab-cine" />
         <input type="radio" name="tabs" id="tab-3d" />
 
         <div class="tab-controls">
@@ -235,17 +195,16 @@
           <label for="tab-3d">Floor Plans & 3D Tours</label>
         </div>
 
-        <!-- sets -->
         <div class="sets">
-          <!-- photos -->
+          <!-- Photos -->
           <div class="set photos">
             <div class="grid">
               <article class="card">
-                <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/fa1a76ee-6c2d-4ec9-9840-886aa3c55ddc/5928-chariton_009.jpg?content-type=image%2Fjpeg" alt="MLS‑style Interior and Exterior Photography in Los Angeles" />
+                <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/fa1a76ee-6c2d-4ec9-9840-886aa3c55ddc/5928-chariton_009.jpg?content-type=image%2Fjpeg" alt="MLS-style Interior and Exterior Photography in Los Angeles" />
                 <div class="card-body">
                   <span class="tag">Photos</span>
-                  <h3>MLS‑Style Photography</h3>
-                  <p>Consistent, MLS‑ready coverage with true color, straight verticals, and clear room flow.</p>
+                  <h3>MLS-Style Photography</h3>
+                  <p>Consistent, MLS-ready coverage with true color, straight verticals, and clear room flow.</p>
                 </div>
               </article>
               <article class="card">
@@ -253,7 +212,7 @@
                 <div class="card-body">
                   <span class="tag">Twilight</span>
                   <h3>Twilight Photography</h3>
-                  <p>Prime blue‑hour compositions with natural ambience and glow.</p>
+                  <p>Prime blue-hour compositions with natural ambience and glow.</p>
                 </div>
               </article>
               <article class="card">
@@ -267,55 +226,22 @@
             </div>
           </div>
 
-          <!-- cinematic videos -->
-          <div class="set cine">
-            <div class="grid">
-              <article class="card" style="overflow:hidden;">
-                <div class="ratio-16x9"><iframe src="https://www.youtube.com/embed/QvqKTXvTRsc?rel=0&modestbranding=1&playsinline=1" title="Premium Listing Video with Agent" style="position:absolute; inset:0; width:100%; height:100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="card-body">
-                  <span class="tag">Cinematic</span>
-                  <h3>Premium Listing Video w/ Agent</h3>
-                  <p>Confident on‑camera coaching, story‑first pacing, and refined movement.</p>
-                </div>
-              </article>
-              <article class="card" style="overflow:hidden;">
-                <div style="position:relative; padding-top:56.25%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&title=0&byline=0&portrait=0&dnt=1" title="Day‑To‑Night Premium Listing Video" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="card-body">
-                  <span class="tag">Cinematic</span>
-                  <h3>Day‑To‑Night Premium</h3>
-                  <p>Daylight energy into blue‑hour drama with seamless transitions.</p>
-                </div>
-              </article>
-              <article class="card" style="overflow:hidden;">
-                <div style="position:relative; padding-top:56.25%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://player.vimeo.com/video/1107533702?title=0&byline=0&portrait=0&dnt=1" title="Standard MLS Listing Video" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="card-body">
-                  <span class="tag">Cinematic</span>
-                  <h3>Standard MLS Listing Video</h3>
-                  <p>Clean coverage that meets MLS needs with elegant motion.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <!-- social media reels -->
+          <!-- Social Media Reels -->
           <div class="set reels">
             <div class="grid">
-              <article class="card" style="overflow:hidden;">
-                <div class="ratio-9x16"><iframe src="https://player.vimeo.com/video/1112602152?h=6cf229f8e3&title=0&byline=0&portrait=0&dnt=1" title="Creative Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+              <article class="card">
+                <div class="ratio-9x16">
+                  <iframe src="https://player.vimeo.com/video/1112602152?h=6cf229f8e3&title=0&byline=0&portrait=0&dnt=1" title="Creative Real Estate Reel" style="position:absolute;inset:0;width:100%;height:100%" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
                   <h3>Creative Reel</h3>
-                  <p>Hook‑driven, on‑brand storytelling built for vertical.</p>
+                  <p>Hook-driven, on-brand storytelling built for vertical.</p>
                 </div>
               </article>
-              <article class="card" style="overflow:hidden;">
-                <div class="ratio-9x16"><iframe src="https://player.vimeo.com/video/1112601675?h=f62484f5d8&title=0&byline=0&portrait=0&dnt=1" title="Teaser Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+              <article class="card">
+                <div class="ratio-9x16">
+                  <iframe src="https://player.vimeo.com/video/1112601675?h=f62484f5d8&title=0&byline=0&portrait=0&dnt=1" title="Teaser Real Estate Reel" style="position:absolute;inset:0;width:100%;height:100%" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
@@ -323,8 +249,9 @@
                   <p>15–20s teasers perfect for open house promos and ads.</p>
                 </div>
               </article>
-              <article class="card" style="overflow:hidden;">
-                <div class="ratio-9x16"><iframe src="https://player.vimeo.com/video/969982087?h=07dd99972f&title=0&byline=0&portrait=0&dnt=1" title="iPhone Real Estate Reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+              <article class="card">
+                <div class="ratio-9x16">
+                  <iframe src="https://player.vimeo.com/video/969982087?h=07dd99972f&title=0&byline=0&portrait=0&dnt=1" title="iPhone Real Estate Reel" style="position:absolute;inset:0;width:100%;height:100%" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Reels</span>
@@ -335,13 +262,48 @@
             </div>
           </div>
 
-          <!-- floor plans & 3d -->
+          <!-- Cinematic Videos -->
+          <div class="set cine">
+            <div class="grid">
+              <article class="card">
+                <div class="ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/QvqKTXvTRsc?rel=0&modestbranding=1&playsinline=1" title="Premium Listing Video with Agent" style="position:absolute;inset:0;width:100%;height:100%" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">Cinematic</span>
+                  <h3>Premium Listing Video w/ Agent</h3>
+                  <p>Confident on-camera coaching, story-first pacing, and refined movement.</p>
+                </div>
+              </article>
+              <article class="card">
+                <div class="ratio-16x9">
+                  <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&title=0&byline=0&portrait=0&dnt=1" title="Day-To-Night Premium Listing Video" style="position:absolute;inset:0;width:100%;height:100%" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">Cinematic</span>
+                  <h3>Day-To-Night Premium</h3>
+                  <p>Daylight energy into blue-hour drama with seamless transitions.</p>
+                </div>
+              </article>
+              <article class="card">
+                <div class="ratio-16x9">
+                  <iframe src="https://player.vimeo.com/video/1107533702?title=0&byline=0&portrait=0&dnt=1" title="Standard MLS Listing Video" style="position:absolute;inset:0;width:100%;height:100%" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">Cinematic</span>
+                  <h3>Standard MLS Listing Video</h3>
+                  <p>Clean coverage that meets MLS needs with elegant motion.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Floor Plans & 3D -->
           <div class="set tour">
             <div class="grid">
-              <!-- matterport -->
-              <article class="card" style="overflow:hidden;">
-                <div class="ratio-16x9" style="border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://my.matterport.com/show/?m=9Nqjxv7tUGK&play=1&title=0&qs=1&vr=0" title="Matterport 3D Tour" style="position:absolute; inset:0; width:100%; height:100%;" allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen" allowfullscreen></iframe>
+              <article class="card">
+                <div class="ratio-16x9">
+                  <iframe src="https://my.matterport.com/show/?m=9Nqjxv7tUGK&play=1&title=0&qs=1&vr=0" title="Matterport 3D Tour" style="position:absolute;inset:0;width:100%;height:100%" allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">3D Tour</span>
@@ -349,43 +311,41 @@
                   <p>Immersive walkthrough—buyers explore at their own pace.</p>
                 </div>
               </article>
-              <!-- zillow next to matterport -->
-              <article class="card" style="overflow:hidden;">
-                <div class="ratio-16x9" style="border-radius: calc(var(--radius) - 4px); overflow:hidden;">
-                  <iframe src="https://www.zillow.com/view-imx/c1bfdb14-9393-4928-996d-d234346f2f84?setAttribution=mls&wl=true&initialViewType=pano&utm_source=dashboard" title="Zillow 3D Home Tour" style="position:absolute; inset:0; width:100%; height:100%;" allow="fullscreen"></iframe>
+
+              <article class="card">
+                <div class="ratio-16x9">
+                  <iframe src="https://www.zillow.com/view-imx/c1bfdb14-9393-4928-996d-d234346f2f84?setAttribution=mls&wl=true&initialViewType=pano&utm_source=dashboard" title="Zillow 3D Home Tour" style="position:absolute;inset:0;width:100%;height:100%" allow="fullscreen"></iframe>
                 </div>
                 <div class="card-body">
                   <span class="tag">Zillow 3D</span>
                   <h3>Zillow 3D Home Tour</h3>
-                  <p>Interactive, Zillow‑hosted tour embedded in‑page.</p>
+                  <p>Interactive, Zillow-hosted tour embedded in-page.</p>
                 </div>
               </article>
-              <!-- floor plan on its own row -->
-              <article class="card card-floorplan" style="overflow:hidden;">
+
+              <article class="card card-floorplan">
                 <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/f7e47cca-167f-49bd-9fb2-2b2198b24fed/RMP+-+Floor+Plan+-+5826+West+Olympic.jpg?content-type=image%2Fjpeg" alt="2D and 3D Real Estate Floor Plans" />
                 <div class="card-body">
                   <span class="tag">Floor Plans</span>
                   <h3>2D/3D Floor Plans</h3>
-                  <p>Clean, accurate layouts—MLS‑ready within 24–48h.</p>
+                  <p>Clean, accurate layouts—MLS-ready within 24–48h.</p>
                 </div>
               </article>
             </div>
           </div>
         </div>
       </div>
-      </div>
-      </div>
 
-      <!-- band cta -->
+      <!-- CTA band -->
       <div class="cta" style="margin-top:28px;">
         <h3>Ready To Elevate Your Next Listing?</h3>
-        <p class="muted" style="margin: 6px 0 16px;">Fast scheduling, consistent quality, and a team you can trust.</p>
-        <a href="https://order.envisionmediala.com/" class="btn primary">book now</a>
+        <p class="muted" style="margin:6px 0 16px;">Fast scheduling, consistent quality, and a team you can trust.</p>
+        <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
       </div>
     </div>
   </section>
 
-  <!-- reviews -->
+  <!-- ===== Reviews ===== -->
   <section id="reviews">
     <div class="wrap">
       <div class="section-head">
@@ -405,76 +365,22 @@
         </div>
         <div class="review">
           <div class="stars" aria-label="5 stars">★★★★★</div>
-          <p>“Working with Max has been an absolute pleasure. Thoughtful, creative, and truly collaborative. He takes the time to understand the home before crafting the script and visuals—every shot tells a story. Editing is top‑notch and he consistently delivers above expectations.”</p>
+          <p>“Working with Max has been an absolute pleasure. Thoughtful, creative, and truly collaborative. He takes the time to understand the home before crafting the script and visuals—every shot tells a story. Editing is top-notch and he consistently delivers above expectations.”</p>
           <p class="muted">— Micah Lava, Craig Strong Group — Compass</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- footer -->
+  <!-- ===== Footer ===== -->
   <footer>
-    <div class="wrap">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
-        <p>© <span id="y">2025</span> ENVISION MEDIA LA LLC • los angeles, ca</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="#work">back to work</a>
-          <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
-        </div>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <p>© <span id="y">2025</span> ENVISION MEDIA LA LLC • los angeles, ca</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#work">back to work</a>
+        <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
       </div>
     </div>
   </footer>
 </body>
 </html>
-
-<style>
-  /* --- DESKTOP NAV: show inline links, hide mobile menu, taller bar, bigger logo --- */
-  @media (min-width: 861px){
-    .site-header .nav{ padding:30px 0 !important; }
-    .logo-img{ height:72px !important; }
-    #menu-toggle, label.hamburger{ display:none !important; }
-    .nav-links{ 
-      display:flex !important; 
-      position:static !important; 
-      background:transparent !important; 
-      padding:0 !important;
-      gap:18px !important;
-    }
-  }
-
-  /* --- MOBILE NAV: show the “menu” pill only under 860px --- */
-  @media (max-width: 860px){
-    label.hamburger{ display:inline-flex !important; }
-  }
-
-  /* --- BUTTONS: make “book now” look like a real pill again --- */
-  .nav-links .btn.primary,
-  .hero .btn.primary{
-    background: linear-gradient(135deg, #dca738, #f4d07a) !important;
-    color:#1a1a1a !important;
-    border:0 !important;
-    box-shadow: 0 16px 36px rgba(220,167,56,.40) !important;
-    border-radius: 999px !important;
-    padding: 12px 20px !important;
-    font-weight: 700 !important;
-  }
-  .nav-links .btn.primary:hover,
-  .hero .btn.primary:hover{
-    transform: translateY(-1px);
-    box-shadow: 0 20px 44px rgba(220,167,56,.48) !important;
-  }
-
-  /* --- HERO VIDEO: punch in slightly so no thin black bars --- */
-  .hero{ min-height:85vh !important; }
-  @media (max-width:680px){ .hero{ min-height:100svh !important; } }
-  .hero-bg iframe{
-    transform: translate(-50%, -50%) scale(1.30) !important;
-    width: 177.78vh !important; height: 100vh !important;
-    width: 177.78svh !important; height: 100svh !important;
-    border:0 !important; pointer-events:none !important;
-  }
-
-  /* --- FLOOR PLAN TILE: keep same width as others on desktop --- */
-  .set.tour .card-floorplan{ grid-column: span 6 !important; }
-</style>
-
