@@ -1,0 +1,365 @@
+<!--
+  envision media – one‑page landing (html + css only)
+  paste the entire block into a squarespace html block. no external js or css required.
+  notes:
+  - portfolio section uses css‑only tabs (photos • cinematic videos • social media reels • floor plans & 3d).
+  - all text is lowercase for brand consistency.
+  - vimeo/youtube/matterport embeds use player‑safe urls and params.
+  - "book now" buttons point to https://order.envisionmediala.com/.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>envision media – real estate media in los angeles</title>
+  <style>
+    :root {
+      --bg: #1a1a1a;         /* brand dark */
+      --card: #232323;       /* elevated surfaces */
+      --muted: #cfcfcf;      /* secondary text */
+      --text: #ffffff;       /* primary text */
+      --brand: #dca738;      /* gold */
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-sm: 0 6px 18px rgba(0,0,0,.28);
+      --maxw: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html, body { background: var(--bg); color: var(--text); margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji"; line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    img, video, iframe { display: block; width: 100%; height: auto; border: 0; border-radius: calc(var(--radius) - 4px); }
+
+    /* layout */
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+    /* header */
+    .site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(140%) blur(8px); background: rgba(26,26,26,.7); border-bottom: 1px solid rgba(220,167,56,.18); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; text-transform: lowercase; }
+    .logo-mark { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, var(--brand), #f2d27a); box-shadow: 0 6px 16px rgba(220,167,56,.35); }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+
+    /* buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 18px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease; text-transform: lowercase; }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.25); box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+    .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(220,167,56,.45); }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), #f2d27a); color: #1a1a1a; border-color: rgba(220,167,56,.6); box-shadow: 0 14px 34px rgba(220,167,56,.35); }
+    .btn.primary:hover { background: linear-gradient(135deg, #c9962e, var(--brand)); border-color: #e4b552; box-shadow: 0 18px 40px rgba(220,167,56,.45); }
+
+    /* hero */
+    .hero { position: relative; padding: 96px 0 72px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: center; }
+    .kicker { color: var(--brand); font-weight: 700; letter-spacing: .22em; text-transform: lowercase; font-size: 12px; }
+    h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.05; margin: 10px 0 14px; text-transform: lowercase; }
+    .lead { color: var(--muted); font-size: clamp(16px, 2.2vw, 19px); margin-bottom: 26px; max-width: 60ch; text-transform: lowercase; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-media { position: relative; border-radius: var(--radius); padding: 10px; background: linear-gradient(135deg, rgba(220,167,56,.18), rgba(255,255,255,.08)); box-shadow: var(--shadow); }
+    .hero-media-inner { border-radius: calc(var(--radius) - 8px); overflow: hidden; }
+
+    /* section */
+    section { padding: 72px 0; border-top: 1px solid rgba(255,255,255,.08); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 28px; gap: 20px; }
+    .section-head h2 { margin: 0; font-size: clamp(24px, 3.6vw, 36px); text-transform: lowercase; }
+    .muted { color: var(--muted); text-transform: lowercase; }
+
+    /* tabs (css-only) */
+    .tabs { display: grid; gap: 16px; }
+    .tab-controls { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tab-controls label { cursor: pointer; padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); color: var(--muted); transition: all .2s ease; text-transform: lowercase; }
+    .tab-controls label:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
+    input[type="radio"] { display: none; }
+    /* active pill */
+    #tab-photos:checked ~ .tab-controls label[for="tab-photos"],
+    #tab-cine:checked   ~ .tab-controls label[for="tab-cine"],
+    #tab-reels:checked  ~ .tab-controls label[for="tab-reels"],
+    #tab-3d:checked     ~ .tab-controls label[for="tab-3d"] {
+      background: var(--brand); color: #1a1a1a; border-color: #f0c767; box-shadow: 0 10px 26px rgba(220,167,56,.35);
+    }
+
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .card { grid-column: span 4; background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); overflow: hidden; transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease; }
+    .card:hover { transform: translateY(-2px); border-color: rgba(220,167,56,.45); box-shadow: 0 16px 40px rgba(220,167,56,.18); }
+    .card-body { padding: 14px 14px 16px; }
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .08em; text-transform: lowercase; color: var(--brand); }
+    .card h3 { margin: 8px 0 2px; font-size: 18px; text-transform: lowercase; }
+    .card p { margin: 4px 0 0; color: var(--muted); font-size: 14px; text-transform: lowercase; }
+
+    /* show/hide per tab */
+    .set { display: none; }
+    #tab-photos:checked ~ .sets .set.photos,
+    #tab-cine:checked   ~ .sets .set.cine,
+    #tab-reels:checked  ~ .sets .set.reels,
+    #tab-3d:checked     ~ .sets .set.tour { display: block; }
+
+    /* reviews */
+    .reviews { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .review { grid-column: span 4; background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-sm); }
+    .stars { letter-spacing: 2px; color: var(--brand); }
+
+    /* cta band */
+    .cta { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, rgba(220,167,56,.16), rgba(255,255,255,.06)); border: 1px solid rgba(220,167,56,.25); border-radius: var(--radius); box-shadow: 0 16px 40px rgba(220,167,56,.16); }
+    .cta h3 { margin: 0 0 10px; font-size: clamp(22px, 3.2vw, 30px); text-transform: lowercase; }
+
+    /* footer */
+    footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; }
+
+    /* responsive */
+    @media (max-width: 1024px) {
+      .card { grid-column: span 6; }
+      .review { grid-column: span 6; }
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .card, .review { grid-column: span 12; }
+      .hero { padding-top: 80px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>envision media</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#work" class="btn" aria-label="view work">work</a>
+        <a href="#reviews" class="btn" aria-label="read reviews">reviews</a>
+        <a href="https://order.envisionmediala.com/" class="btn primary" aria-label="book now">book now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">los angeles • real estate media</div>
+        <h1>your real estate media partner</h1>
+        <p class="lead">photo, drone, cinematic video, social reels, and immersive 3d—delivered with obsessive quality and on‑time reliability. built for la agents who want trust, polish, and results.</p>
+        <div class="hero-cta">
+          <a href="https://order.envisionmediala.com/" class="btn primary">book now</a>
+          <a href="#work" class="btn">see work</a>
+        </div>
+      </div>
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-media-inner">
+          <iframe src="https://www.youtube.com/embed/QvqKTXvTRsc?rel=0&modestbranding=1&playsinline=1" title="hero video" style="position:relative; width:100%; aspect-ratio:16/9;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- portfolio / work (tabs) -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>selected work</h2>
+        <p class="muted">photos • cinematic videos • social media reels • floor plans & 3d</p>
+      </div>
+
+      <div class="tabs">
+        <!-- controls -->
+        <input type="radio" name="tabs" id="tab-photos" checked />
+        <input type="radio" name="tabs" id="tab-cine" />
+        <input type="radio" name="tabs" id="tab-reels" />
+        <input type="radio" name="tabs" id="tab-3d" />
+
+        <div class="tab-controls">
+          <label for="tab-photos">photos</label>
+          <label for="tab-cine">cinematic videos</label>
+          <label for="tab-reels">social media reels</label>
+          <label for="tab-3d">floor plans & 3d tours</label>
+        </div>
+
+        <!-- sets -->
+        <div class="sets">
+          <!-- photos -->
+          <div class="set photos">
+            <div class="grid">
+              <article class="card">
+                <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/fa1a76ee-6c2d-4ec9-9840-886aa3c55ddc/5928-chariton_009.jpg?content-type=image%2Fjpeg" alt="mls style interior/exterior photography" />
+                <div class="card-body">
+                  <span class="tag">photos</span>
+                  <h3>mls‑style photography</h3>
+                  <p>consistent, mls‑ready coverage with true color, straight verticals, and clear room flow.</p>
+                </div>
+              </article>
+              <article class="card">
+                <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/958107c3-8af5-49a2-806a-86b0646aaa1f/4625-vesper_007.jpg?content-type=image%2Fjpeg" alt="twilight photography sample" />
+                <div class="card-body">
+                  <span class="tag">twilight</span>
+                  <h3>twilight photography</h3>
+                  <p>prime blue‑hour compositions with natural ambience and glow.</p>
+                </div>
+              </article>
+              <article class="card">
+                <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/9c3088c8-fd08-406b-af76-3efb3dbb82dd/1934-lucile_004.jpg?content-type=image%2Fjpeg" alt="drone photography sample" />
+                <div class="card-body">
+                  <span class="tag">drone</span>
+                  <h3>drone photography</h3>
+                  <p>aerial context that anchors the listing in its neighborhood.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- cinematic videos -->
+          <div class="set cine">
+            <div class="grid">
+              <article class="card" style="overflow:hidden;">
+                <div style="position:relative; padding-top:56.25%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
+                  <iframe src="https://www.youtube.com/embed/QvqKTXvTRsc?rel=0&modestbranding=1&playsinline=1" title="premium listing video with agent" style="position:absolute; inset:0; width:100%; height:100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">cinematic</span>
+                  <h3>premium listing video w/ agent</h3>
+                  <p>confident on‑camera coaching, story‑first pacing, and refined movement.</p>
+                </div>
+              </article>
+              <article class="card" style="overflow:hidden;">
+                <div style="position:relative; padding-top:56.25%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
+                  <iframe src="https://player.vimeo.com/video/1112603102?h=70b5205e4b&title=0&byline=0&portrait=0&dnt=1" title="day‑to‑night premium listing video" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">cinematic</span>
+                  <h3>day‑to‑night premium</h3>
+                  <p>daylight energy into blue‑hour drama with seamless transitions.</p>
+                </div>
+              </article>
+              <article class="card" style="overflow:hidden;">
+                <div style="position:relative; padding-top:56.25%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
+                  <iframe src="https://player.vimeo.com/video/1107533702?title=0&byline=0&portrait=0&dnt=1" title="standard mls listing video" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">cinematic</span>
+                  <h3>standard mls listing video</h3>
+                  <p>clean coverage that meets mls needs with elegant motion.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- social media reels -->
+          <div class="set reels">
+            <div class="grid">
+              <article class="card" style="overflow:hidden;">
+                <div style="position:relative; padding-top:177%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
+                  <iframe src="https://player.vimeo.com/video/1112602152?h=6cf229f8e3&title=0&byline=0&portrait=0&dnt=1" title="creative reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">reels</span>
+                  <h3>creative reel</h3>
+                  <p>hook‑driven, on‑brand storytelling built for vertical.</p>
+                </div>
+              </article>
+              <article class="card" style="overflow:hidden;">
+                <div style="position:relative; padding-top:177%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
+                  <iframe src="https://player.vimeo.com/video/1112601675?h=f62484f5d8&title=0&byline=0&portrait=0&dnt=1" title="teaser reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">reels</span>
+                  <h3>teaser reel</h3>
+                  <p>15–20s teasers perfect for open house promos and ads.</p>
+                </div>
+              </article>
+              <article class="card" style="overflow:hidden;">
+                <div style="position:relative; padding-top:177%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
+                  <iframe src="https://player.vimeo.com/video/969982087?h=07dd99972f&title=0&byline=0&portrait=0&dnt=1" title="iphone reel" style="position:absolute; inset:0; width:100%; height:100%;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">reels</span>
+                  <h3>iphone reel</h3>
+                  <p>lightweight capture with fast turnaround and strong hooks.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- floor plans & 3d -->
+          <div class="set tour">
+            <div class="grid">
+              <article class="card" style="overflow:hidden;">
+                <div style="position:relative; padding-top:56.25%; border-radius: calc(var(--radius) - 4px); overflow:hidden;">
+                  <iframe src="https://my.matterport.com/show/?m=9Nqjxv7tUGK&play=1&title=0&qs=1&vr=0" title="matterport 3d tour" style="position:absolute; inset:0; width:100%; height:100%;" allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <span class="tag">3d tour</span>
+                  <h3>matterport 3d tour</h3>
+                  <p>immersive walkthrough—buyers explore at their own pace.</p>
+                </div>
+              </article>
+              <article class="card" style="overflow:hidden;">
+                <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/f7e47cca-167f-49bd-9fb2-2b2198b24fed/RMP+-+Floor+Plan+-+5826+West+Olympic.jpg?content-type=image%2Fjpeg" alt="2d/3d floor plans sample" />
+                <div class="card-body">
+                  <span class="tag">floor plans</span>
+                  <h3>2d/3d floor plans</h3>
+                  <p>clean, accurate layouts—mls‑ready within 24–48h.</p>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-body">
+                  <span class="tag">zillow 3d</span>
+                  <h3>zillow 3d home tour</h3>
+                  <p>zillow blocks third‑party embedding. open in a new tab for the full experience.</p>
+                  <a class="btn" href="https://www.zillow.com/view-imx/c1bfdb14-9393-4928-996d-d234346f2f84?setAttribution=mls&wl=true&initialViewType=pano&utm_source=dashboard" target="_blank" rel="noopener">open tour</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- band cta -->
+      <div class="cta" style="margin-top:28px;">
+        <h3>ready to elevate your next listing?</h3>
+        <p class="muted" style="margin: 6px 0 16px;">fast scheduling, consistent quality, and a team you can trust.</p>
+        <a href="https://order.envisionmediala.com/" class="btn primary">book now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- reviews -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>google reviews</h2>
+        <p class="muted">what la agents say about working with us</p>
+      </div>
+      <div class="reviews">
+        <div class="review">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p>“max and the team are dialed. photos and video were on‑brand, delivered fast, and made the listing shine. clients noticed.”</p>
+          <p class="muted">— anna r., compass</p>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p>“best experience i’ve had with a media company. clear communication, thoughtful coaching on camera, flawless deliverables.”</p>
+          <p class="muted">— amir s., the agency</p>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p>“the drone + reel combo crushed it. multiple offers after the first weekend—marketing matters and these folks get it.”</p>
+          <p class="muted">— jenna l., kw</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+        <p>© <span id="y">2025</span> envision media la • los angeles, ca</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="#work">back to work</a>
+          <a class="btn primary" href="https://order.envisionmediala.com/">book now</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
