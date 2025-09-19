@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>envision media — Real Estate Photography & Video Cheat Sheet</title>
+  <meta name="theme-color" content="#111111" />
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --paper:#141518;
+      --edge:#24262a;
+      --text:#f6f7f8;
+      --muted:#bfc3c8;
+      --brand:#dca738;
+      --brand-2:#ffffff;
+      --radius:18px;
+      --maxw:980px;
+    }
+    html,body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0}
+    *{box-sizing:border-box}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--maxw);margin:auto;padding:18px}
+
+    header{display:flex;align-items:flex-start;gap:14px;padding:12px 8px 8px;border-bottom:1px solid #1b1c20}
+    .logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--brand),#a6791d);display:grid;place-items:center;font-weight:900;color:#111;font-size:1.05rem}
+    .title h1{font-size:1.15rem;line-height:1.2;margin:0}
+    .title .sub{color:var(--muted);font-size:.9rem;margin-top:2px}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin:16px 0 24px}
+    .tile{background:var(--paper);border:1px solid var(--edge);border-radius:var(--radius);padding:14px;position:relative;overflow:hidden}
+    .tile h2{font-size:1.05rem;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+    ul{margin:8px 0 0 18px;padding:0}
+    li{margin:6px 0}
+    strong{color:var(--brand)}
+    table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.9rem}
+    th,td{border:1px solid var(--edge);padding:6px 8px;text-align:left}
+    th{background:#1d1e21;color:var(--brand)}
+
+    @media (min-width:900px){
+      .span-2{grid-column:span 2}
+      .side-by-side{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    }
+
+    footer{border-top:1px solid #1b1c20;margin-top:10px;padding:12px 8px;color:var(--muted);font-size:.85rem}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="logo">em</div>
+      <div class="title">
+        <h1>envision media — photo & video cheat sheet</h1>
+        <div class="sub">Phone‑optimized one‑pager • classic cheat‑sheet layout</div>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="Cheat sheet tiles">
+      <article class="tile span-2" id="camera">
+        <h2>⚙️ Camera Settings (Photos)</h2>
+        <ul>
+          <li><strong>Mode:</strong> Aperture Priority (A)</li>
+          <li><strong>Aperture:</strong> f/9 (range f/9–f/13)</li>
+          <li><strong>Exposure:</strong> +0.3 EV</li>
+          <li><strong>ISO:</strong> 640–1000 (max 1500 in dark)</li>
+          <li><strong>WB:</strong> Auto</li>
+          <li><strong>Bracketing:</strong> Day → 3 brackets, ±2EV • Twilight → 5 brackets, ±1EV</li>
+          <li>Polarizer for glare/reflections</li>
+          <li>Clean lens before every shoot</li>
+        </ul>
+      </article>
+
+      <article class="tile" id="tripod">
+        <h2>📏 Tripod Height</h2>
+        <ul>
+          <li><strong>Interiors:</strong> just above doorknob height.</li>
+          <li><strong>Bathrooms:</strong> balance vanity + light fixture.</li>
+          <li><strong>Kitchens:</strong> raise slightly (avoid cabinet undersides).</li>
+          <li><strong>Exteriors:</strong> handheld high for curb + sky balance.</li>
+        </ul>
+      </article>
+
+      <article class="tile" id="counts">
+        <h2>📸 Photo Count & Timing</h2>
+        <p><em>Times include setup, walkthrough, and file drop/culling.</em></p>
+        <ul>
+          <li><strong>Lease Photos:</strong> 15 photos • ~40 min</li>
+          <li><strong>&lt; 1,000 sq ft:</strong> 10–15 photos • ~45 min</li>
+          <li><strong>1k–2k sq ft:</strong> 25–30 photos • ~1 hr</li>
+          <li><strong>2k–3k sq ft:</strong> 35–40 photos • ~1.5 hr</li>
+          <li><strong>3k–4k sq ft:</strong> 40–50 photos • ~1 hr 45 min</li>
+          <li><strong>4k–5k sq ft:</strong> 50–60 photos • ~2 hr</li>
+          <li><strong>Drone Photos:</strong> 5–7 photos • ~15 min</li>
+          <li><strong>Community Amenities:</strong> 10–15 photos • ~20 min</li>
+        </ul>
+      </article>
+
+      <article class="tile span-2" id="rooms">
+        <h2>🛋️ Room Guidelines</h2>
+        <ul>
+          <li><strong>All rooms:</strong> entry shot + opposite corner.</li>
+          <li><strong>Front exteriors:</strong> 4–5 (straight‑on, both sides, compressed, w/ or w/o gate).</li>
+          <li><strong>Bedrooms:</strong> doorway + opposite corner.</li>
+          <li><strong>Primary bed:</strong> 2–3 (show flow to bath).</li>
+          <li><strong>Bathrooms:</strong> usually 1 (optional reverse), 2+ for primary.</li>
+          <li><strong>Closets:</strong> walk‑in only.</li>
+          <li><strong>Kitchen/Dining/Living:</strong> min 3 each; include straight‑on island/table.</li>
+          <li><strong>Backyard:</strong> 3–4 (include reverse looking at house).</li>
+          <li><strong>Garage:</strong> only finished (check with agent).</li>
+        </ul>
+      </article>
+
+      <article class="tile" id="twilight">
+        <h2>🌅 Twilight</h2>
+        <ul>
+          <li>Arrive 15 min before sunset.</li>
+          <li>All lights/fireplace ON.</li>
+          <li><strong>Prime time:</strong> 10–15 min after sunset.</li>
+          <li><strong>Bracket setting:</strong> 5 brackets, ±1EV.</li>
+          <li>Drone if appropriate (views, hills, big lot).</li>
+          <li>Twilight window is only 10–15 min.</li>
+          <li><strong>Order:</strong> Drone Photo/Video → Photos → Video.</li>
+        </ul>
+      </article>
+
+      <article class="tile" id="drone">
+        <h2>🚁 Drone Basics</h2>
+        <ul>
+          <li>Check airspace in Aloft app and submit LAANC.</li>
+          <li>Wait for GPS lock → “Home Point Updated.”</li>
+          <li>Do NOT fly without GPS / if in Restricted Zone.</li>
+          <li>Watch wind → test hover before flying.</li>
+          <li><strong>Compose:</strong> sky ≈ 1/3 of frame; house in lower middle third.</li>
+          <li>Capture variety (close + wide, house + area).</li>
+          <li>Highlight surroundings (ocean, city, schools, landmarks).</li>
+        </ul>
+      </article>
+
+      <article class="tile span-2" id="tours">
+        <h2>🧭 3D Tours — Matterport vs Zillow 3D</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Matterport</th>
+              <th>Zillow 3D</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Floor Plan</strong></td><td>Not included</td><td>Floor plan auto-generated</td></tr>
+            <tr><td><strong>Scan Frequency</strong></td><td>Every ~6 feet</td><td>1–4 scans per room depending on size (maintain VLOS)</td></tr>
+            <tr><td><strong>During Scan</strong></td><td>Mark mirrors & windows as you go</td><td>Name rooms as you go</td></tr>
+            <tr><td><strong>Coverage</strong></td><td>Only scan areas shown in tour (skip closets)</td><td>Scan all spaces including closets/garage; hide scans if not needed</td></tr>
+            <tr><td><strong>Detached Garage / ADU</strong></td><td>Create a straight-line path to connect</td><td>Scan as usual (maintain VLOS)</td></tr>
+            <tr><td><strong>Stairs</strong></td><td>Scan every 2–3 steps</td><td>Scan top & bottom only</td></tr>
+            <tr><td><strong>Outdoor Areas</strong></td><td>Capture with 360° scans</td><td>Scan as usual</td></tr>
+            <tr><td><strong>Connectivity / Alignment</strong></td><td>Must maintain a clean scan path; alignment between areas/floors is critical</td><td>Alignment is less sensitive, but every space must be scanned for accurate floor plan generation</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="tile span-2" id="video-settings">
+        <h2>🎥 Video Settings</h2>
+        <ul>
+          <li><strong>Resolution:</strong> 4K 60p</li>
+          <li><strong>Shutter Speed:</strong> 1/125</li>
+          <li><strong>ISO:</strong> Auto only if under 2500. For interiors set 12800 (2nd base ISO). Never use 2500–12800 or above 12800.</li>
+          <li><strong>Aperture (F-Stop):</strong> adjust for exposure +1.3 to +2.0 (ideal +1.7). Do not let +2.0 blink.</li>
+          <li><strong>Picture Profile:</strong> S-Log3</li>
+          <li><strong>Grid:</strong> Rule of thirds + diagonals</li>
+          <li><strong>Zebra:</strong> Lower Limit 94+</li>
+          <li><strong>Peaking:</strong> On, Red</li>
+          <li><strong>White Balance:</strong> Auto</li>
+          <li><strong>File Format:</strong> XAVC HS 4K</li>
+          <li><strong>Record Setting:</strong> 100 Mbps 4:2:2 10-bit</li>
+          <li><strong>Stabilization:</strong> SteadyShot → Standard</li>
+        </ul>
+        <h3>📷 Lens Settings</h3>
+        <ul>
+          <li><strong>Wides (Laowa manual focus):</strong> focus between ∞ and 3; aperture f/2.8–f/22.</li>
+          <li><strong>Details (Sony 50mm f/1.4):</strong> aperture f/1.4–f/4; manually set focus for each shot.</li>
+        </ul>
+      </article>
+
+      <article class="tile span-2" id="video-composition">
+        <h2>🎬 Video Composition</h2>
+        <ul>
+          <li>Core wide-angle shots: Curved push-in (go-to), Straight push-in (safety), Parallax, Birdie, FPV/Dutch Angles (creative).</li>
+          <li>Get shots from multiple directions in each room, like with photos.</li>
+          <li>Always shoot from as far back as possible to maximize space.</li>
+          <li>Each shot must have <strong>Meat → Picture Shot → Meat</strong>: entry ramp, slowed picture shot, exit ramp.</li>
+          <li>Use hallways/doorways to add depth and lead into rooms.</li>
+        </ul>
+      </article>
+
+      <div class="side-by-side">
+        <article class="tile" id="video-faim">
+          <h2>🎯 Video Shot Framework — F.A.I.M</h2>
+          <p><em>These parameters must be checked for every shot, and always set based on your <strong>Picture Shot</strong> (the slowed portion), not the entry/exit ramp.</em></p>
+          <ul>
+            <li><strong>F — Focus:</strong> use peaking (red lines) to confirm subject is sharp.</li>
+            <li><strong>A — Aperture:</strong> default to lowest (usually f/2.8), adjust as needed for exposure.</li>
+            <li><strong>I — ISO:</strong> Auto if it remains under 2500, otherwise 12800.</li>
+            <li><strong>M — Metering:</strong> exposure meter +1.3 to +2.0 (ideal +1.7), never blinking. Adjust using ISO/aperture.</li>
+          </ul>
+        </article>
+
+        <article class="tile" id="video-counts">
+          <h2>⏱️ Video Shot Count & Timing</h2>
+          <ul>
+            <li><strong>Standard Listing Video:</strong><br>35 wides • ~25 min</li>
+            <li><strong>Premium Listing Video:</strong><br>35–40 wides • ~25 min<br>25–35 details • ~25 min<br>5 drones • ~15 min</li>
+            <li><strong>Creative Reel:</strong><br>25–30 wides • ~25 min<br>8–10 details • ~10–15 min<br>3–4 drones • ~10–15 min</li>
+            <li><strong>Agent On-Camera:</strong><br>10–15 min (not including scripting)</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="tile span-2" id="agent-scripting">
+        <h2>🗣️ Agent On-Camera & Scripting</h2>
+        <p>Use our <a href="https://chatgpt.com/g/g-6810e2935940819182de4c3d6a7ceae8-envision-media-script-writer" target="_blank">Script Writer GPT Bot</a> to create scripts within our guidelines.</p>
+        <ul>
+          <li><strong>Structure:</strong> 1 Hook → 2–4 Middle Sentences → 1 Call to Action</li>
+          <li><strong>Hooks:</strong> Avoid “Welcome to…”, stating the address, or mentioning bed/bath counts.</li>
+          <li><strong>Call to Action:</strong> e.g. “DM me for more information” or “Contact me for a private showing.”</li>
+          <li><strong>Filming Go-to Shot:</strong> Wide-angle lens, agent walking toward camera while operator backs up at same speed.</li>
+          <li><strong>Alternative Shot:</strong> Start farther away and both walk toward center (but prefer walking backward with agent).</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <footer>
+      Built for the envision media team • Expand later with additional video/creative tiles.
+    </footer>
+  </main>
+</body>
+</html>
