@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Envision Media • Pricing (Homes &lt; 2,000 sqft)</title>
+  <meta name="description" content="Envision Media pricing starting points for homes under 2,000 sqft. Book online in minutes." />
+  <meta property="og:title" content="Envision Media • Pricing (Homes < 2,000 sqft)" />
+  <meta property="og:description" content="Simple pricing starting points for homes under 2,000 sqft. Book online in minutes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/dc6f0da1-4437-4257-9759-984be88375ba/envisionmedialogo-transparent.png?content-type=image%2Fpng" />
+  <meta property="og:locale" content="en_US" />
+
+  <style>
+    :root{
+      --bg:#1a1a1a;
+      --card:#232323;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --brand:#dca738;
+      --radius:18px;
+      --shadow:0 12px 34px rgba(0,0,0,.38);
+      --shadow-sm:0 8px 22px rgba(0,0,0,.28);
+      --maxw:980px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .topbar{
+      position:sticky;top:0;z-index:10;
+      background:rgba(26,26,26,.82);
+      backdrop-filter:saturate(140%) blur(8px);
+      border-bottom:1px solid rgba(220,167,56,.18);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:52px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+    .brand{font-weight:600;letter-spacing:.2px;text-transform:lowercase;opacity:.95}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:999px;font-weight:800;text-transform:lowercase;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+      box-shadow:var(--shadow-sm);
+      transition:transform .15s, box-shadow .2s, border-color .2s;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.25);box-shadow:0 10px 26px rgba(0,0,0,.36)}
+    .btn.primary{
+      background:linear-gradient(135deg,var(--brand),#f4d07a);
+      color:#1a1a1a;border:0;
+      box-shadow:0 16px 36px rgba(220,167,56,.40);
+    }
+    .btn.primary:hover{box-shadow:0 20px 44px rgba(220,167,56,.48)}
+
+    header.hero{padding:42px 0 18px}
+    .pill{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    }
+    h1{margin:14px 0 10px;font-size:clamp(26px,4.6vw,42px);line-height:1.1}
+    .sub{margin:0 0 18px;color:var(--muted);max-width:70ch;font-size:16px}
+    .note{margin:0;color:var(--muted);font-size:13px}
+    .accent{color:var(--brand);font-weight:800}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 8px}
+
+    main{padding:18px 0 56px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{
+      grid-column:span 12;
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+      padding:18px 18px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(135deg,rgba(220,167,56,.14),rgba(255,255,255,.03));
+    }
+    .card-head h2{margin:0;font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+    .card-head .hint{margin:0;color:var(--muted);font-size:12px}
+    .rows{padding:6px 6px 12px}
+    .row{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:12px 12px;border-radius:14px;
+    }
+    .row + .row{border-top:1px solid rgba(255,255,255,.06);border-top-left-radius:0;border-top-right-radius:0}
+    .label{font-weight:650}
+    .price{
+      font-weight:900;
+      letter-spacing:.02em;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .two-col{grid-column:span 6}
+    @media (max-width:800px){
+      .two-col{grid-column:span 12}
+      .logo img{height:46px}
+    }
+
+    .cta{
+      margin-top:14px;
+      padding:18px;
+      border-radius:var(--radius);
+      background:linear-gradient(135deg,rgba(220,167,56,.16),rgba(255,255,255,.05));
+      border:1px solid rgba(220,167,56,.25);
+      text-align:center;
+    }
+    .cta h3{margin:0 0 8px;font-size:20px}
+    .cta p{margin:0 0 14px;color:var(--muted)}
+
+    footer{padding:28px 0 46px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:13px}
+    footer .foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  </style>
+</head>
+
+<body>
+  <div class="topbar" role="banner">
+    <div class="wrap nav">
+      <div class="logo">
+        <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/dc6f0da1-4437-4257-9759-984be88375ba/envisionmedialogo-transparent.png?content-type=image%2Fpng"
+             alt="Envision Media logo" />
+        <div class="brand">envision media</div>
+      </div>
+      <a class="btn primary" href="https://order.envisionmediala.com/" target="_blank" rel="noopener">book now</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="pill">Pricing • Homes &lt; 2,000 sqft • starting at</div>
+      <h1>Simple pricing. <span class="accent">Book online</span> in minutes.</h1>
+      <p class="sub">
+        These are <strong>starting prices</strong> for homes under 2,000 sqft. For full pricing (larger homes, bundles, add-ons),
+        head to our booking page.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://order.envisionmediala.com/" target="_blank" rel="noopener">schedule your shoot</a>
+        <a class="btn" href="#pricing">view pricing</a>
+      </div>
+      <p class="note">Questions? Text/call after you book and we’ll help you dial in the perfect package.</p>
+    </div>
+  </header>
+
+  <main id="pricing">
+    <div class="wrap">
+      <div class="grid">
+        <!-- Packages -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2>Packages</h2>
+              <p class="hint">Best value bundle pricing</p>
+            </div>
+            <p class="hint">Starting at</p>
+          </div>
+          <div class="rows">
+            <div class="row"><div class="label">Signature Media Package</div><div class="price">$1,997</div></div>
+            <div class="row"><div class="label">Premium Media Package</div><div class="price">$997</div></div>
+            <div class="row"><div class="label">Branding Media Package</div><div class="price">$597</div></div>
+            <div class="row"><div class="label">Zillow Showcase Package</div><div class="price">$567</div></div>
+            <div class="row"><div class="label">Essentials Media Package</div><div class="price">$347</div></div>
+          </div>
+        </section>
+
+        <!-- A la carte -->
+        <section class="card two-col">
+          <div class="card-head">
+            <div>
+              <h2>A La Carte Services</h2>
+              <p class="hint">Build your own</p>
+            </div>
+            <p class="hint">Starting at</p>
+          </div>
+          <div class="rows">
+            <div class="row"><div class="label">Listing Photos</div><div class="price">$225</div></div>
+            <div class="row"><div class="label">Drone Photos</div><div class="price">$200</div></div>
+            <div class="row"><div class="label">Twilight Photography</div><div class="price">$299</div></div>
+            <div class="row"><div class="label">Standard Listing Video</div><div class="price">$350</div></div>
+            <div class="row"><div class="label">Premium Listing Video</div><div class="price">$595</div></div>
+            <div class="row"><div class="label">Drone Video</div><div class="price">$250</div></div>
+            <div class="row"><div class="label">iPhone Reel</div><div class="price">$200</div></div>
+            <div class="row"><div class="label">Premium Creative Reel</div><div class="price">$495</div></div>
+            <div class="row"><div class="label">Matterport 3D Tour</div><div class="price">$250</div></div>
+            <div class="row"><div class="label">Zillow 3D Tour + Interactive Floor Plan</div><div class="price">$200</div></div>
+            <div class="row"><div class="label">2D Floor Plan</div><div class="price">$75</div></div>
+            <div class="row"><div class="label">3D Floor Plan</div><div class="price">$175</div></div>
+            <div class="row"><div class="label">Small Lease Photos</div><div class="price">$195</div></div>
+            <div class="row"><div class="label">Airbnb Photography</div><div class="price">$250</div></div>
+          </div>
+        </section>
+
+        <!-- Add-ons -->
+        <section class="card two-col">
+          <div class="card-head">
+            <div>
+              <h2>Add-Ons</h2>
+              <p class="hint">Boost your deliverables</p>
+            </div>
+            <p class="hint">Starting at</p>
+          </div>
+          <div class="rows">
+            <div class="row"><div class="label">Virtual Twilight Photos <span class="note">(per photo)</span></div><div class="price">$40</div></div>
+            <div class="row"><div class="label">Virtual Staging <span class="note">(per photo)</span></div><div class="price">$50</div></div>
+            <div class="row"><div class="label">Marketing Kit + Property Website</div><div class="price">$30</div></div>
+            <div class="row"><div class="label">Custom Domain</div><div class="price">$40</div></div>
+            <div class="row"><div class="label">Day-to-Night Video Add-On</div><div class="price">$299</div></div>
+            <div class="row"><div class="label">Neighborhood/Location Video Add-On</div><div class="price">$100</div></div>
+            <div class="row"><div class="label">Social Media Teaser <span class="note">(from footage)</span></div><div class="price">$150</div></div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta" aria-label="Book now">
+          <h3>Ready to book?</h3>
+          <p>Pick your date, choose your services, and you’ll see full pricing for all home sizes.</p>
+          <a class="btn primary" href="https://order.envisionmediala.com/" target="_blank" rel="noopener">book now</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© <span id="y"></span> ENVISION MEDIA LA LLC • Los Angeles, CA</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#pricing">back to pricing</a>
+        <a class="btn primary" href="https://order.envisionmediala.com/" target="_blank" rel="noopener">book now</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
