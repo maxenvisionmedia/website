@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Envision Media • Internal Upsell Pricing</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root{
+      --bg:#1a1a1a;
+      --card:#232323;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --brand:#dca738;
+      --radius:18px;
+      --shadow:0 12px 34px rgba(0,0,0,.38);
+      --shadow-sm:0 8px 22px rgba(0,0,0,.28);
+      --maxw:980px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .topbar{
+      position:sticky;top:0;z-index:10;
+      background:rgba(26,26,26,.82);
+      backdrop-filter:saturate(140%) blur(8px);
+      border-bottom:1px solid rgba(220,167,56,.18);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:44px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+    .brand{font-weight:600;letter-spacing:.2px;text-transform:lowercase;opacity:.95}
+
+    header.hero{padding:34px 0 12px}
+    h1{margin:0 0 10px;font-size:clamp(22px,4.2vw,36px);line-height:1.1}
+    .sub{margin:0;color:var(--muted);max-width:80ch;font-size:15px}
+    .pill{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .accent{color:var(--brand);font-weight:800}
+
+    main{padding:14px 0 56px}
+
+    .controls{
+      display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+      margin:12px 0 16px;
+    }
+    .select{
+      cursor:pointer;
+      box-shadow:0 0 0 2px rgba(220,167,56,.35), var(--shadow-sm);
+
+      display:flex;gap:10px;align-items:center;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow-sm);
+    }
+    label{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    select{
+      background:transparent;color:var(--text);
+      border:0;outline:0;font-weight:800;
+      font-size:14px;
+      padding:0;
+      appearance:none;
+    }
+    .hint{color:var(--muted);font-size:13px}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{
+      grid-column:span 12;
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+      padding:18px 18px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(135deg,rgba(220,167,56,.14),rgba(255,255,255,.03));
+    }
+    .card-head h2{margin:0;font-size:16px;letter-spacing:.12em;text-transform:uppercase}
+    .card-head .right{margin:0;color:var(--muted);font-size:12px}
+    .rows{padding:6px 6px 12px}
+    .row{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:12px 12px;border-radius:14px;
+    }
+    .row + .row{border-top:1px solid rgba(255,255,255,.06);border-top-left-radius:0;border-top-right-radius:0}
+    .label2{font-weight:700}
+    .price{
+      font-weight:900;
+      letter-spacing:.02em;
+      font-variant-numeric:tabular-nums;
+      white-space:nowrap;
+    }
+    .muted{color:var(--muted);font-size:12px}
+
+    .tag{
+      display:inline-flex;align-items:center;
+      padding:4px 10px;border-radius:999px;
+      font-size:11px;font-weight:900;
+      letter-spacing:.12em;text-transform:uppercase;
+      background:rgba(220,167,56,.14);
+      border:1px solid rgba(220,167,56,.32);
+      color:#f4d07a;
+      margin-left:8px;
+    }
+
+    @media (max-width:520px){
+      .logo img{height:40px}
+      .select{
+      cursor:pointer;
+      box-shadow:0 0 0 2px rgba(220,167,56,.35), var(--shadow-sm);
+width:100%;justify-content:space-between}
+      select{font-size:15px}
+    }
+
+    footer{padding:24px 0 40px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:12px}
+  </style>
+
+  <style>
+    #pinGate{
+      position:fixed;inset:0;z-index:9999;
+      background:rgba(10,10,10,.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .pin-box{
+      background:#232323;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      padding:26px 24px;
+      width:min(92%,380px);
+      box-shadow:0 20px 60px rgba(0,0,0,.55);
+      text-align:center;
+    }
+    .pin-box h2{margin:0 0 10px;font-size:20px}
+    .pin-box p{margin:0 0 18px;color:#cfcfcf;font-size:14px}
+    .pin-box input{
+      width:100%;padding:14px 16px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:#111;color:#fff;font-size:16px;
+      text-align:center;letter-spacing:.3em;
+    }
+    .pin-box button{
+      margin-top:14px;width:100%;
+      padding:14px 16px;border-radius:999px;
+      border:0;background:#dca738;color:#000;
+      font-weight:900;font-size:14px;cursor:pointer;
+    }
+    .pin-error{color:#ff8a8a;font-size:13px;margin-top:10px;display:none}
+  </style>
+
+</head>
+
+<body>
+
+  <div id="pinGate">
+    <div class="pin-box">
+      <h2>Internal Access</h2>
+      <p>Enter the team PIN to view internal upsell pricing.</p>
+      <input id="pinInput" type="password" placeholder="••••" maxlength="6" />
+      <button onclick="checkPin()">Unlock</button>
+      <div class="pin-error" id="pinError">Incorrect PIN</div>
+    </div>
+  </div>
+
+  <div class="topbar">
+    <div class="wrap nav">
+      <div class="logo">
+        <img src="https://images.squarespace-cdn.com/content/64a5bb8be312876ff6795d17/dc6f0da1-4437-4257-9759-984be88375ba/envisionmedialogo-transparent.png?content-type=image%2Fpng"
+             alt="Envision Media logo" />
+        <div class="brand">envision media</div>
+      </div>
+      <div class="pill" style="margin:0">internal</div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="pill">upsell reference • a la carte + add-ons</div>
+      <h1>Pricing <span class="accent">for on-site upsells</span>.</h1>
+      <p class="sub">Select the home size. Then quote the matching price for the add-on the client wants.</p>
+      <div class="pill" style="margin-top:12px;border-color:rgba(255,77,77,.5);background:rgba(255,77,77,.12);color:#ffb3b3">
+        Internal use only • Do not share with clients
+      </div>
+
+
+      <div class="controls">
+        <div class="select" role="group" aria-label="Square footage filter">
+          <div>
+            <label for="tier">Square footage</label><br />
+            <select id="tier">
+              <option value="lt2000">&lt; 2,000 sqft</option>
+              <option value="lt3000">&lt; 3,000 sqft</option>
+              <option value="lt4000">&lt; 4,000 sqft</option>
+              <option value="lt5000">&lt; 5,000 sqft</option>
+              <option value="lt6000">&lt; 6,000 sqft</option>
+              <option value="lt7000">&lt; 7,000 sqft</option>
+            </select><span style="margin-left:8px;color:var(--brand);font-weight:900">▾</span>
+          </div>
+          <div class="tag" id="tierTag">starting at</div>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="grid">
+        <section class="card">
+          <div class="card-head">
+            <h2>A La Carte Services</h2>
+            <p class="right" id="tierLabel">STARTING AT • &lt; 2,000 sqft</p>
+          </div>
+          <div class="rows" id="servicesRows"></div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h2>Add-Ons</h2>
+            <p class="right" id="tierLabel2">STARTING AT • &lt; 2,000 sqft</p>
+          </div>
+          <div class="rows" id="addonsRows"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Internal reference only. If a client asks for full pricing, send them the public pricing page / booking link.
+    </div>
+  </footer>
+
+  <script>
+    const TIERS = {
+      lt2000: { label: "< 2,000 sqft" },
+      lt3000: { label: "< 3,000 sqft" },
+      lt4000: { label: "< 4,000 sqft" },
+      lt5000: { label: "< 5,000 sqft" },
+      lt6000: { label: "< 6,000 sqft" },
+      lt7000: { label: "< 7,000 sqft" },
+    };
+
+    // Prices derived from your screenshot; if a cell was blank, we show "Quote".
+    // Exclusions requested: Listing Photos, Small Lease Photos, Airbnb Photography.
+    // Override requested: Drone Photos = $125.
+    const SERVICES = [
+      { name: "Drone Photos", prices: { lt2000: 125, lt3000: 125, lt4000: 125, lt5000: 125, lt6000: 125, lt7000: 125 } },
+      { name: "Twilight Photography", prices: { lt2000: 299, lt3000: 299, lt4000: 299, lt5000: 299, lt6000: 299, lt7000: 299 } },
+      { name: "Standard Listing Video", prices: { lt2000: 350, lt3000: 350, lt4000: "Not eligible", lt5000: "Not eligible", lt6000: "Not eligible", lt7000: "Not eligible" } },
+      { name: "Premium Listing Video", prices: { lt2000: 595, lt3000: 650, lt4000: 695, lt5000: 795, lt6000: 895, lt7000: 995 } },
+      { name: "Drone Video", prices: { lt2000: 250, lt3000: 250, lt4000: 250, lt5000: 250, lt6000: 250, lt7000: 250 } },
+      { name: "iPhone Reel", prices: { lt2000: 200, lt3000: 200, lt4000: "Not eligible", lt5000: "Not eligible", lt6000: "Not eligible", lt7000: "Not eligible" } },
+      { name: "Premium Creative Reel", prices: { lt2000: 495, lt3000: 495, lt4000: 595, lt5000: 695, lt6000: 795, lt7000: 895 } },
+      { name: "Matterport 3D Tour", prices: { lt2000: 250, lt3000: 300, lt4000: 350, lt5000: 450, lt6000: 550, lt7000: 700 } },
+      { name: "Zillow 3D Tour + Interactive Floor Plan", prices: { lt2000: 200, lt3000: 200, lt4000: 225, lt5000: 275, lt6000: 325, lt7000: 375 } },
+      { name: "2D Floor Plan", prices: { lt2000: 75, lt3000: 100, lt4000: 100, lt5000: 145, lt6000: 170, lt7000: 170 } },
+      { name: "3D Floor Plan", prices: { lt2000: 175, lt3000: 175, lt4000: 250, lt5000: 250, lt6000: "Quote", lt7000: "Quote" } },
+    ];
+
+    const ADDONS = [
+      { name: "Virtual Twilight Photos (per photo)", prices: { lt2000: 40, lt3000: 40, lt4000: 40, lt5000: 40, lt6000: 40, lt7000: 40 } },
+      { name: "Virtual Staging (per photo)", prices: { lt2000: 50, lt3000: 50, lt4000: 50, lt5000: 50, lt6000: 50, lt7000: 50 } },
+
+      { name: "Virtual Staging Bundle (5 photos for price of 4)", prices: { lt2000: 200, lt3000: 200, lt4000: 200, lt5000: 200, lt6000: 200, lt7000: 200 } },
+
+      { name: "Marketing Kit + Property Website", prices: { lt2000: 30, lt3000: 30, lt4000: 30, lt5000: 30, lt6000: 30, lt7000: 30 } },
+      { name: "Custom Domain", prices: { lt2000: 40, lt3000: 40, lt4000: 40, lt5000: 40, lt6000: 40, lt7000: 40 } },
+      { name: "Day-to-Night Video Add-On", prices: { lt2000: 299, lt3000: 299, lt4000: 299, lt5000: 299, lt6000: 299, lt7000: 299 } },
+      { name: "Neighborhood/Location Video Add-On", prices: { lt2000: 100, lt3000: 100, lt4000: 100, lt5000: 100, lt6000: 100, lt7000: 100 }, note: "30 minutes of extra shooting or one location" },
+      { name: "Social Media Teaser (from footage)", prices: { lt2000: 150, lt3000: 150, lt4000: 150, lt5000: 150, lt6000: 150, lt7000: 150 } },
+    ];
+
+    function fmtPrice(v){
+      if (v === null || v === undefined) return "—";
+      if (typeof v === "string") return v;
+      return "$" + Number(v).toLocaleString("en-US");
+    }
+
+    function renderRows(list, tierKey, containerId){
+      const el = document.getElementById(containerId);
+      el.innerHTML = "";
+      list.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "row";
+        const left = document.createElement("div");
+        left.className = "label2";
+        left.textContent = item.name;
+        if(item.note){
+          const note = document.createElement("div");
+          note.className = "muted";
+          note.textContent = item.note;
+          left.appendChild(note);
+        }
+
+        const right = document.createElement("div");
+        right.className = "price";
+        right.textContent = fmtPrice(item.prices[tierKey]);
+
+        row.appendChild(left);
+        row.appendChild(right);
+        el.appendChild(row);
+      });
+    }
+
+    function setTier(tierKey){
+      const label = TIERS[tierKey]?.label || "< 2,000 sqft";
+      document.getElementById("tierLabel").textContent = "STARTING AT • " + label;
+      document.getElementById("tierLabel2").textContent = "STARTING AT • " + label;
+      document.getElementById("tierTag").textContent = "starting at";
+      renderRows(SERVICES, tierKey, "servicesRows");
+      renderRows(ADDONS, tierKey, "addonsRows");
+    }
+
+    const tierSelect = document.getElementById("tier");
+    tierSelect.addEventListener("change", (e) => setTier(e.target.value));
+    setTier(tierSelect.value);
+  </script>
+
+  <script>
+    const CORRECT_PIN = "1759"; // change anytime
+    function checkPin(){
+      const val = document.getElementById("pinInput").value;
+      if(val === CORRECT_PIN){
+        document.getElementById("pinGate").style.display = "none";
+      } else {
+        document.getElementById("pinError").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
