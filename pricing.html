@@ -119,6 +119,61 @@
 
     footer{padding:28px 0 46px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:13px}
     footer .foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  
+    .badge{
+      display:inline-block;
+      margin-left:10px;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      background:rgba(255, 77, 77, .16);
+      border:1px solid rgba(255, 77, 77, .38);
+      color:#ff4d4d;
+      vertical-align:middle;
+      white-space:nowrap;
+    }
+    .upgrade-note{
+      margin:10px 0 0;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(255, 77, 77, .10);
+      border:1px solid rgba(255, 77, 77, .25);
+      color:#ffd2d2;
+      font-size:13px;
+      line-height:1.35;
+    }
+
+    /* Gold upgrade callout (Branding upgrade section) */
+    .badge-gold{
+      display:inline-block;
+      margin-left:10px;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      background:rgba(220,167,56,.18);
+      border:1px solid rgba(220,167,56,.45);
+      color:#f4d07a;
+      vertical-align:middle;
+      white-space:nowrap;
+    }
+    .upgrade-note-gold{
+      margin:10px 0 0;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(220,167,56,.14);
+      border:1px solid rgba(220,167,56,.35);
+      color:#f6e3a6;
+      font-size:13px;
+      line-height:1.35;
+    }
+
+
   </style>
 </head>
 
@@ -139,14 +194,14 @@
       
       <h1>Simple pricing. <span class="accent">Book online</span> in minutes.</h1>
       <p class="sub">
-        These are <strong>starting prices</strong> for homes under 2,000 sqft. For full pricing (larger homes, bundles, add-ons),
+        <strong>Starting prices</strong> for homes under 2,000 sqft. For full pricing (larger homes, bundles, add-ons),
         head to our booking page.
       </p>
       <div class="hero-actions">
         <a class="btn primary" href="https://order.envisionmediala.com/" target="_blank" rel="noopener">schedule your shoot</a>
         <a class="btn" href="#pricing">view pricing</a>
       </div>
-      <p class="note">Questions? Text/call after you book and we’ll help you dial in the perfect package.</p>
+      <p class="note">Questions? Text or call at <strong>310‑678‑1759</strong> and we’ll help you dial in the perfect package.</p>
     </div>
   </header>
 
@@ -163,11 +218,54 @@
             <p class="hint"><strong style="letter-spacing:.12em;">STARTING&nbsp;AT</strong></p>
           </div>
           <div class="rows">
-            <div class="row"><div class="label">Signature Media Package</div><div class="price">$1,997</div></div>
-            <div class="row"><div class="label">Premium Media Package</div><div class="price">$997</div></div>
-            <div class="row"><div class="label">Branding Media Package</div><div class="price">$597</div></div>
-            <div class="row"><div class="label">Zillow Showcase Package</div><div class="price">$567</div></div>
-            <div class="row"><div class="label">Essentials Media Package</div><div class="price">$347</div></div>
+            <div class="row"><div class="label">Signature Media Package
+<details style="margin-top:10px">
+  <summary style="cursor:pointer;color:#dca738;font-weight:700">see what's included</summary>
+  <ul style="margin:10px 0 0 18px;color:#cfcfcf;line-height:1.6">
+    <li>Listing Photos</li><li>Premium Detail Photography</li><li>Drone Photos</li><li>Premium Listing Video </li><li>Premium Creative Reel </li><li>Social Media Edit</li><li>Twilight Photos</li><li>Day-to-Night Video Add-On</li><li>2D Floor Plan</li><li>Marketing Kit + Property Website</li><li>Custom Domain</li><li>Zillow 3D Tour + Interactive Floor Plan </li>
+  </ul>
+</details>
+</div><div class="price">$1,997</div></div>
+            <div class="row"><div class="label">Premium Media Package
+<details style="margin-top:10px">
+  <summary style="cursor:pointer;color:#dca738;font-weight:700">see what's included</summary>
+  <ul style="margin:10px 0 0 18px;color:#cfcfcf;line-height:1.6">
+    <li>Listing Photos</li><li>Drone Photos</li><li>Premium Listing Video </li><li>2D Floor Plan </li><li>2x Virtual Twilight Photos</li><li>Marketing Kit + Property Website</li>
+  </ul>
+</details>
+</div><div class="price">$997</div></div>
+            <div class="row"><div class="label">Branding Media Package<span class="badge">most popular</span>
+<details style="margin-top:10px">
+  <summary style="cursor:pointer;color:#dca738;font-weight:700">see what's included</summary>
+<ul style="margin:10px 0 0 18px;color:#cfcfcf;line-height:1.6">
+    <li>Listing Photos</li><li>Drone Photos</li><li>iPhone Reel</li><li>Agent Intro Add-On</li><li>Drone Add-On</li><li>2D Floor Plan </li><li>Marketing Kit + Property Website</li>
+  </ul>
+  <div class="upgrade-note-gold" style="margin-top:12px">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div><strong>Upgrade:</strong> Premium Creative Reel <strong>+$250</strong></div>
+      <span class="badge-gold">most popular add-on</span>
+    </div>
+    <div style="margin-top:6px;opacity:.95">The <strong>Premium Creative Reel</strong> is our most popular video and drives significantly more engagement than the standard <strong>iPhone Reel</strong> included.</div>
+  </div>
+
+</details>
+</div><div class="price">$597</div></div>
+            <div class="row"><div class="label">Zillow Showcase Package
+<details style="margin-top:10px">
+  <summary style="cursor:pointer;color:#dca738;font-weight:700">see what's included</summary>
+  <ul style="margin:10px 0 0 18px;color:#cfcfcf;line-height:1.6">
+    <li>Listing Photos</li><li>Drone Photos</li><li>Zillow 3D Tour + Interactive Floor Plan </li><li>1x Virtual Twilight Photo</li><li>Marketing Kit + Property Website</li>
+  </ul>
+</details>
+</div><div class="price">$567</div></div>
+            <div class="row"><div class="label">Essentials Media Package
+<details style="margin-top:10px">
+  <summary style="cursor:pointer;color:#dca738;font-weight:700">see what's included</summary>
+  <ul style="margin:10px 0 0 18px;color:#cfcfcf;line-height:1.6">
+    <li>Listing Photos</li><li>Drone Photos</li><li>Marketing Kit + Property Website</li>
+  </ul>
+</details>
+</div><div class="price">$347</div></div>
           </div>
         </section>
 
@@ -188,7 +286,7 @@
             <div class="row"><div class="label">Premium Listing Video</div><div class="price">$595</div></div>
             <div class="row"><div class="label">Drone Video</div><div class="price">$250</div></div>
             <div class="row"><div class="label">iPhone Reel</div><div class="price">$200</div></div>
-            <div class="row"><div class="label">Premium Creative Reel</div><div class="price">$495</div></div>
+            <div class="row"><div class="label">Premium Premium Creative Reel</div><div class="price">$495</div></div>
             <div class="row"><div class="label">Matterport 3D Tour</div><div class="price">$250</div></div>
             <div class="row"><div class="label">Zillow 3D Tour + Interactive Floor Plan</div><div class="price">$200</div></div>
             <div class="row"><div class="label">2D Floor Plan</div><div class="price">$75</div></div>
@@ -212,7 +310,7 @@
             <div class="row"><div class="label">Virtual Staging <span class="note">(per photo)</span></div><div class="price">$50</div></div>
             <div class="row"><div class="label">Marketing Kit + Property Website</div><div class="price">$30</div></div>
             <div class="row"><div class="label">Custom Domain</div><div class="price">$40</div></div>
-            <div class="row"><div class="label">Day-to-Night Video Add-On</div><div class="price">$299</div></div>
+            <div class="row"><div class="label">Day-to-Night Video Add-On Add-On</div><div class="price">$299</div></div>
             <div class="row"><div class="label">Neighborhood/Location Video Add-On</div><div class="price">$100</div></div>
             <div class="row"><div class="label">Social Media Teaser <span class="note">(from footage)</span></div><div class="price">$150</div></div>
           </div>
@@ -221,7 +319,7 @@
         <!-- CTA -->
         <section class="cta" aria-label="Book now" style="grid-column:span 12;">
           <h3>Ready to book?</h3>
-          <p>Pick your date, choose your services, and you’ll see full pricing for all home sizes.</p>
+          <p>Pick your date, choose your services, and schedule your shoot in minutes.</p>
           <a class="btn primary" href="https://order.envisionmediala.com/" target="_blank" rel="noopener">book now</a>
         </section>
       </div>
