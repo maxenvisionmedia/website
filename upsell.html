@@ -269,13 +269,13 @@ width:100%;justify-content:space-between}
     // Exclusions requested: Listing Photos, Small Lease Photos, Airbnb Photography.
     // Override requested: Drone Photos = $125.
     const SERVICES = [
-      { name: "Drone Photos", note: "Recommend when the property has views (ocean, city), nearby landmarks, parks, or to showcase the surrounding neighborhood, the land size, solar panels, or exterior features.", prices: { lt2000: 125, lt3000: 125, lt4000: 125, lt5000: 125, lt6000: 125, lt7000: 125 } },
+      { name: "Drone Photos", note: "Recommend when the property has views (ocean, city), nearby landmarks, parks, or to showcase the surrounding neighborhood, the land size, solar panels, or exterior features.", prices: { lt2000: 125, lt3000: 125, lt4000: 125, lt5000: 125, lt6000: 125, lt7000: 125 }, reviewSwap: true, reviewSwapLabel: "Free for review (1–2 photos)" },
       { name: "Twilight Photography", note: "Best for homes with large windows and strong lighting features. Makes the listing stand out more than daytime photos.", prices: { lt2000: 299, lt3000: 299, lt4000: 299, lt5000: 299, lt6000: 299, lt7000: 299 } },
       { name: "Standard Listing Video", note: "Our most affordable horizontal video. Perfect if the agent only ordered vertical content. Usable for emails, websites, YouTube, and MLS.", sample: "https://www.dropbox.com/scl/fo/59xp1bia5j1wp7ulj8wfr/AEvAujD3pJkA5Gm-Ktj-44Y?rlkey=jkt6z3paoci7ypjk7sk6qk5wm&dl=0", prices: { lt2000: 350, lt3000: 350, lt4000: "Not eligible", lt5000: "Not eligible", lt6000: "Not eligible", lt7000: "Not eligible" } },
       { name: "Premium Listing Video", note: "Recommend if the agent has a YouTube channel (or wants to grow one) and wants a strong horizontal video option. Also perfect for a more cinematic, high-end tour with stronger detail shots to wow homeowners.", sample: "https://www.dropbox.com/scl/fo/8el006gvshz2ezpfwizly/ACdZFFEiUs14DPR4AGMZyVU?rlkey=uexhbnzbzkisrc04r4qcsj4y9&dl=0", prices: { lt2000: 595, lt3000: 650, lt4000: 695, lt5000: 795, lt6000: 895, lt7000: 995 } },
       { name: "Drone Video", note: "Ideal for commercial, multifamily, exterior-only listings, or to highlight location when interior filming isn’t needed.", sample: "https://www.dropbox.com/scl/fo/8xiio2xwegkq8dc3bvexp/AMuKq0DEhThpHnLYy07118o?rlkey=uh54ytbcqgx6lla87usoq2l4z&dl=0", prices: { lt2000: 250, lt3000: 250, lt4000: 250, lt5000: 250, lt6000: 250, lt7000: 250 } },
       { name: "iPhone Reel", note: "Entry-level video option if no video was ordered. Pitch Premium Creative Reel first, then offer this as a lower-cost start.", sample: "https://www.dropbox.com/scl/fo/afv1ysu5ws0na56nlzcmm/AGmVHuttnUbUdz6-Og-FTr4?rlkey=djadti400oandzpmfhyd8uyqe&dl=0", prices: { lt2000: 200, lt3000: 200, lt4000: "Not eligible", lt5000: "Not eligible", lt6000: "Not eligible", lt7000: "Not eligible" } },
-      { name: "Upgrade to Premium Creative Reel", note: "Recommended when the client has booked an iPhone Reel and wants to upgrade to a Premium Creative Reel. If the client doesn't have any video, refer to the Premium Creative Reel full pricing.", prices: { lt2000: 245, lt3000: 245, lt4000: "Not eligible", lt5000: "Not eligible", lt6000: "Not eligible", lt7000: "Not eligible" } },
+      { name: "Upgrade to Premium Creative Reel", note: "Recommended when the client has booked an iPhone Reel and wants to upgrade to a Premium Creative Reel. If the client doesn't have any video, refer to the Premium Creative Reel full pricing.", prices: { lt2000: 250, lt3000: 250, lt4000: "Not eligible", lt5000: "Not eligible", lt6000: "Not eligible", lt7000: "Not eligible" } },
       { name: "Premium Creative Reel", note: "Our most recommended video. Gets agents on camera, works across all platforms, and is how most agents stand out today.", sample: "https://www.dropbox.com/scl/fo/gbmjkkdt7tf8s05vau9h8/AAFjMdfBLgHyCau7G3WOPdo?rlkey=fsvp68o5t8b70zhha7ugeehtv&dl=0", prices: { lt2000: 495, lt3000: 495, lt4000: 595, lt5000: 695, lt6000: 795, lt7000: 895 } },
       { name: "Matterport 3D Tour", note: "Recommend when clients care about experiencing the layout and flow of the home virtually.", prices: { lt2000: 250, lt3000: 300, lt4000: 350, lt5000: 450, lt6000: 550, lt7000: 700 } },
       { name: "Zillow 3D Tour + Interactive Floor Plan", note: "Cheaper than Matterport. Best value if they want more exposure + a tour and floor plan, and they don’t care as much about tour quality.", prices: { lt2000: 200, lt3000: 200, lt4000: 225, lt5000: 275, lt6000: 325, lt7000: 375 } },
@@ -296,6 +296,8 @@ width:100%;justify-content:space-between}
       { name: "Day-to-Night Video Add-On", note: "Perfect if the client ordered twilights or wants a more engaging, dynamic video.", prices: { lt2000: 299, lt3000: 299, lt4000: 299, lt5000: 299, lt6000: 299, lt7000: 299 } },
       { name: "Neighborhood/Location Video Add-On", note: "Perfect if they want to highlight the neighborhood or nearby spots that aren’t the listing (stores, parks, coffee, etc.). Great for selling lifestyle, not just the house.", prices: { lt2000: 100, lt3000: 100, lt4000: 100, lt5000: 100, lt6000: 100, lt7000: 100 }, note: "30 minutes of extra shooting or one location. Perfect if they want to highlight the neighborhood or nearby spots that aren’t the listing (stores, parks, coffee, etc.). Great for selling lifestyle, not just the house." },
       { name: "Social Media Edit (from footage)", note: "Use to maximize content: coming soon, open house, just listed, price drop, or social posts.", sample: "https://www.dropbox.com/scl/fo/maazwwzg9oc7teke2xd7l/ACeYvrIgC0wW5Y2KFBptzI0?rlkey=zduojdf81j6vndppbm8qtxtom&dl=0", prices: { lt2000: 150, lt3000: 150, lt4000: 150, lt5000: 150, lt6000: 150, lt7000: 150 } },
+      { name: "AI Transition Add-On", note: "Add up to 3 AI transitions (virtual staging, renovation, day/night, etc.) to your video. All AI transitions are final — be sure to communicate your preferences. Recommend when the client is doing video and the house is empty.", prices: { lt2000: 150, lt3000: 150, lt4000: 150, lt5000: 150, lt6000: 150, lt7000: 150 } },
+      { name: "Unbranded Version", note: "Recommend when the client wants an unbranded version of their video.", prices: { lt2000: 100, lt3000: 100, lt4000: 100, lt5000: 100, lt6000: 100, lt7000: 100 } },
     ];
 
     function fmtPrice(v){
@@ -316,7 +318,7 @@ width:100%;justify-content:space-between}
         if(item.reviewSwap){
           const tag = document.createElement("span");
           tag.className = "tag-review";
-          tag.textContent = "Free for review";
+          tag.textContent = item.reviewSwapLabel || "Free for review";
           left.appendChild(tag);
         }
         if(item.sample){
