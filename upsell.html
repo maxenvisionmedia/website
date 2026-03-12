@@ -136,6 +136,29 @@ width:100%;justify-content:space-between}
     }
 
     footer{padding:24px 0 40px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:12px}
+
+    .guidelines{
+      margin-top:16px;
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .guideline{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:12px 14px;border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:13px;line-height:1.5;color:var(--muted);
+    }
+    .guideline-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+    .guideline strong{color:var(--text)}
+    .guideline-script{
+      margin-top:6px;
+      padding:8px 12px;border-radius:10px;
+      background:rgba(220,167,56,.08);
+      border:1px solid rgba(220,167,56,.2);
+      color:#f4d07a;
+      font-style:italic;
+      font-size:12px;line-height:1.5;
+    }
   </style>
 
   <style>
@@ -206,6 +229,19 @@ width:100%;justify-content:space-between}
         Internal use only • Do not share with clients
       </div>
 
+      <div class="guidelines">
+        <div class="guideline">
+          <span class="guideline-icon">💡</span>
+          <div><strong>Upsells only count when you recommend a service based on your conversation or the specific listing.</strong> The upsell should be completed within the same allotted shoot time. For bigger upsells like video, it can run longer during the same shoot — as long as you won't be late to the next one.</div>
+        </div>
+        <div class="guideline">
+          <span class="guideline-icon">🎁</span>
+          <div>
+            <strong>Some services can be given for free in exchange for a Google review or video testimonial</strong> — they're tagged <span class="tag-review" style="font-size:10px;padding:2px 7px;margin:0 2px">Free for review</span> accordingly. When offering a freebie, always make sure to get something in return and position it as:
+            <div class="guideline-script">"Hey, we usually charge $X for this, but I'd be happy to give it to you for free if you'd be open to leaving us a Google review or a short video testimonial."</div>
+          </div>
+        </div>
+      </div>
 
       <div class="controls">
         <div class="select" role="group" aria-label="Square footage filter">
