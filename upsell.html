@@ -114,6 +114,17 @@
       color:#f4d07a;
       margin-left:8px;
     }
+    .tag-review{
+      display:inline-flex;align-items:center;gap:5px;
+      padding:3px 9px;border-radius:999px;
+      font-size:10px;font-weight:900;
+      letter-spacing:.1em;text-transform:uppercase;
+      background:rgba(52,211,153,.12);
+      border:1px solid rgba(52,211,153,.35);
+      color:#6ee7b7;
+      margin-left:8px;
+      vertical-align:middle;
+    }
 
     @media (max-width:520px){
       .logo img{height:40px}
@@ -269,11 +280,12 @@ width:100%;justify-content:space-between}
       { name: "Zillow 3D Tour + Interactive Floor Plan", note: "Cheaper than Matterport. Best value if they want more exposure + a tour and floor plan, and they don’t care as much about tour quality.", prices: { lt2000: 200, lt3000: 200, lt4000: 225, lt5000: 275, lt6000: 325, lt7000: 375 } },
       { name: "2D Floor Plan", note: "Simple way to showcase layout and room relationships. Works for almost any listing.", sample: "https://www.dropbox.com/scl/fo/m7dugpr4x4ffbjfaw9aht/ABguw9xy-dPuHWIeClLOF9U?rlkey=al51w5kvmoo428m115d6vt3ba&dl=0", prices: { lt2000: 75, lt3000: 100, lt4000: 100, lt5000: 145, lt6000: 170, lt7000: 170 } },
       { name: "3D Floor Plan", note: "Best for vacant or empty homes. Helps buyers visualize furniture placement and scale.", sample: "https://www.dropbox.com/scl/fo/m7dugpr4x4ffbjfaw9aht/ABguw9xy-dPuHWIeClLOF9U?rlkey=al51w5kvmoo428m115d6vt3ba&dl=0", prices: { lt2000: 175, lt3000: 175, lt4000: 250, lt5000: 250, lt6000: "Quote", lt7000: "Quote" } },
-      { name: "Detail Photography", note: "5–10 detail-focused shots perfect to tease your listing on social media or to highlight specific features (vertical/horizontal).", prices: { lt2000: 75, lt3000: 75, lt4000: 75, lt5000: 75, lt6000: 75, lt7000: 75 } },
+      { name: "Detail Photography", note: "5–10 detail-focused shots perfect to tease your listing on social media or to highlight specific features (vertical/horizontal).", prices: { lt2000: 75, lt3000: 75, lt4000: 75, lt5000: 75, lt6000: 75, lt7000: 75 }, reviewSwap: true },
+      { name: "Premium Detail Photography", note: "20–25 \"magazine-style\" photos including a blend of detail-focused shots and creative/artistic room shots. (vertical/horizontal)", prices: { lt2000: 175, lt3000: 175, lt4000: 175, lt5000: 175, lt6000: 175, lt7000: 175 } },
     ];
 
     const ADDONS = [
-      { name: "Virtual Twilight Photos (per photo)", note: "Great alternative when discussing twilights. Night imagery helps listings stand out online.", prices: { lt2000: 40, lt3000: 40, lt4000: 40, lt5000: 40, lt6000: 40, lt7000: 40 } },
+      { name: "Virtual Twilight Photos (per photo)", note: "Great alternative when discussing twilights. Night imagery helps listings stand out online.", prices: { lt2000: 40, lt3000: 40, lt4000: 40, lt5000: 40, lt6000: 40, lt7000: 40 }, reviewSwap: true },
       { name: "Virtual Staging (per photo)", note: "Recommend when the home is vacant or partially staged. Easy way to improve presentation.", sample: "https://www.dropbox.com/scl/fo/0iq2b8hv2k6pmyi5uhrw6/h?rlkey=rqiiah2du1i23o4zkoaykwbe1&dl=0", prices: { lt2000: 50, lt3000: 50, lt4000: 50, lt5000: 50, lt6000: 50, lt7000: 50 } },
 
       { name: "Virtual Staging Bundle (5 photos for price of 4)", note: "Best value option for vacant homes. Ideal when multiple rooms need staging.", sample: "https://www.dropbox.com/scl/fo/0iq2b8hv2k6pmyi5uhrw6/h?rlkey=rqiiah2du1i23o4zkoaykwbe1&dl=0", prices: { lt2000: 200, lt3000: 200, lt4000: 200, lt5000: 200, lt6000: 200, lt7000: 200 } },
@@ -300,6 +312,12 @@ width:100%;justify-content:space-between}
         const left = document.createElement("div");
         left.className = "label2";
         left.textContent = item.name;
+        if(item.reviewSwap){
+          const tag = document.createElement("span");
+          tag.className = "tag-review";
+          tag.textContent = "Free for review";
+          left.appendChild(tag);
+        }
         if(item.sample){
           const a = document.createElement("a");
           a.href = item.sample;
